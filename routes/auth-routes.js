@@ -1,0 +1,35 @@
+const express = require('express');
+const authRouter = express.Router();
+const passport = require('../services/auth/local');
+const authHelpers = require('../services/auth/auth-helpers');
+const usersController = require('../controllers/users-controller');
+
+authRouter.get('/login', authHelpers.loginRedirect, (req, res) => {
+  res.render('auth/login', {
+    currentPage: 'login',
+    user: req.user,
+  });
+});
+
+authRouter.get('/register', authHelpers.loginRedirect, (req,res) => {
+  res.render('auth/register', {
+    currentPage: 'register',
+    user: req.user,
+  });
+});
+
+authRouter.post('/register', usersController.create);
+
+authRouter.post('/login', passport.authenticate('local', {
+    successRedirect: '/books',
+    failureRedirect: '/auth/login',
+    failureFlash: true,
+  });
+);
+
+authRouter.get('/logout', (req, res) => {
+  req.logout();
+  res.redirect('/');
+});
+
+module.exports = authRouter;

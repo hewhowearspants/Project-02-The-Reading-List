@@ -18,9 +18,9 @@ Book.create = (book) => {
     INSERT INTO books
     (title, author, year, genre, read, user_id)
     VALUES
-    ($1, $2, $3, $4, $5, $6)
+    ($1, $2, $3, $4, $5, $6, $7)
     RETURNING *
-  `, [book.title, book.author, book.year, book.genre, book.read, book.userId]);
+  `, [book.title, book.author, book.year, book.genre, book.description, book.read, book.userId]);
 };
 
 Book.update = (book, id) => {
@@ -30,10 +30,21 @@ Book.update = (book, id) => {
     author = $2,
     year = $3,
     genre = $4,
-    read = $5,
+    description = $5,
     WHERE id = $6
     RETURNING *
-  `, [book.title, book.author, book.year, book.genre, book.read, id]);
+  `, [book.title, book.author, book.year, book.genre, book.description, id]);
+};
+
+Book.markRead = (book, id) => {
+  return db.one(`
+    UPDATE books SET
+    read = true,
+    user_rating = $1,
+    user_notes = $2
+    WHERE id = $3
+    RETURNING *
+  `, [book.userRating, book.userNotes, id]);
 };
 
 Book.destroy = (id) => {

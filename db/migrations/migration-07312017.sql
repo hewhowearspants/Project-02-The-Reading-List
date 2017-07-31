@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS books (
     author VARCHAR(255),
     year INTEGER,
     genre VARCHAR(255),
+    description TEXT,
     read BOOLEAN,
     user_id INTEGER REFERENCES users(id),
     user_rating INTEGER,

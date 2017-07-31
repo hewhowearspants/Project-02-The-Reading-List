@@ -60,3 +60,7 @@ Allow the user to look up books based on title using an API lookup, and add book
 [Google Maps API for geocoding & places](https://developers.google.com/maps/)
 
 [Google Books API for looking up book information](https://developers.google.com/books/)
+
+[Amazon product API](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/Welcome.html) - returns XML data, which might require:
+
+[NPM package for converting XML to JSON](https://www.npmjs.com/package/xml2json)

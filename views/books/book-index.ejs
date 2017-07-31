@@ -1,0 +1,28 @@
+<% include ../partials/boilerplate %>
+<% include ../partials/nav {user: user} %>
+
+  <div class='book-container'>
+  <% if (books.length === 0) { %>
+    <h1>You have no books! :(</h1>
+  <% } %>
+  <% for (let book of books) { %>
+    <div class='book'>
+      <div class='book-top'>
+        <h3 id='title'><%= book.title %></h3>
+        <h3 id='author'><%= book.author %></h3>
+      </div>
+      <div class='book-bottom'>
+        <p id='year'><%= book.year %></p>
+        <div class='links'>
+          <a href='/books/<%= book.id %>'>Info</a>
+          <a href='/books/<%= book.id %>/edit'>Edit</a>
+          <form method='POST' action='/books/<%= book.id %>?_method=DELETE'>
+            <input type='submit' value='DELETE' />
+          </form>
+        </div>
+      </div>
+    </div>
+  <% } %>
+  </div>
+
+<% include ../partials/end %>

@@ -1,0 +1,25 @@
+<nav class = 'nav'>
+  <a href='/' id='home'>The Reading List</a>
+  <ul>
+    <% if (user) { %>
+    <li><p>Hello <%= user.firstname %>!</p></li>
+    <li <% if (currentPage === 'add') { %>class='highlight-button'<% } %>>
+      <a href='/books/add'>Add a new book</a>
+    </li>
+    <li <% if (currentPage === 'index') { %>class='highlight-button'<% } %>>
+      <a href='/books'>To-Do</a>
+    </li>
+    <li>
+      <a href='/auth/logout'>Logout</a>
+    </li>
+    <% } else { %>
+    <li <% if (currentPage === 'login') { %>class='highlight-button'<% } %>>
+      <a href='/auth/login'>Login</a>
+    </li>
+    <li <% if (currentPage === 'register') { %>class='highlight-button'<% } %>>
+      <a href='/auth/register'>Register</a>
+    </li>
+    <% } %>
+
+  </ul>
+</nav>

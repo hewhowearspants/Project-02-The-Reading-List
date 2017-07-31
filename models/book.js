@@ -16,7 +16,7 @@ Book.findById = (id) => {
 Book.create = (book) => {
   return db.one(`
     INSERT INTO books
-    (title, author, year, genre, read, user_id)
+    (title, author, year, genre, description, read, user_id)
     VALUES
     ($1, $2, $3, $4, $5, $6, $7)
     RETURNING *
@@ -30,7 +30,7 @@ Book.update = (book, id) => {
     author = $2,
     year = $3,
     genre = $4,
-    description = $5,
+    description = $5
     WHERE id = $6
     RETURNING *
   `, [book.title, book.author, book.year, book.genre, book.description, id]);

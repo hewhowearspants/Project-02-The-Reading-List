@@ -1,0 +1,18 @@
+<% include ../partials/boilerplate %>
+<% include ../partials/nav {user: user} %>
+
+<div class='input-container'>
+<form method='POST' action='/books'>
+  <input name='title' type='text' placeholder='title' />
+  <input name='author' type='text' placeholder='author' />
+  <input name='year' type='number' placeholder='year' />
+  <input name='genre' type='text' placeholder='genre' />
+  <textarea name='description' type='text' placeholder='description'></textarea>
+  <input type='submit' value='Submit!' />
+</form>
+</div>
+<div class='back'>
+  <a href='/books' id='back-button'>Back to the List</a>
+</div>
+
+<% include ../partials/end %>

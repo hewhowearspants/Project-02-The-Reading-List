@@ -54,7 +54,7 @@ bookController.create = (req, res) => {
 
 bookController.update = (req, res) => {
   Book.update({
-    title: req.body.task,
+    title: req.body.title,
     author: req.body.author,
     year: req.body.year,
     genre: req.body.genre,

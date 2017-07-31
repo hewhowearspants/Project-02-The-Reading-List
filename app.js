@@ -9,6 +9,8 @@ const passport = require('passport');
 
 const app = express();
 
+require('dotenv').config();
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -43,7 +45,7 @@ app.get('/', (req, res) => {
 });
 
 const bookRoutes = require('./routes/book-routes');
-app.use('/todo', bookRoutes);
+app.use('/books', bookRoutes);
 const authRoutes = require('./routes/auth-routes');
 app.use('/auth', authRoutes);
 const userRoutes = require('./routes/user-routes');

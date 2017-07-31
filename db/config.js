@@ -1,4 +1,4 @@
-const options = const options = {
+const options = {
     query: (e) => {
         console.log(e.query);
     }

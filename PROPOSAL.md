@@ -21,7 +21,7 @@ The possibilities are endless.
 ![Wireframes 1: DB/index](./assets/Wireframes-1-DB-index.jpg)
 ![Wireframes 2: Pre-login](./assets/Wireframes-2.jpg)
 ![Wireframes 3: Post-login](./assets/Wireframes-3.jpg)
-![Wireframes 1: Beyond MVP](./assets/Wireframes-4-MVP+.jpg)
+![Wireframes 4: Beyond MVP](./assets/Wireframes-4-MVP+.jpg)
 
 ## Initial thoughts on app structure
 

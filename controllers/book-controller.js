@@ -29,7 +29,7 @@ bookController.show = (req, res) => {
         book: book,
         user: req.user,
       });
-    })catch((err) => {
+    }).catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });
@@ -67,18 +67,6 @@ bookController.update = (req, res) => {
   });
 };
 
-bookController.markRead = (req, res) => {
-  Book.markRead({
-    userRating: req.body.rating,
-    userNotes: req.body.notes,
-  }, req.params.id).then((book) => {
-    res.redirect(`/books/${req.params.id}`);
-  }).catch((err) => {
-    console.log(err);
-    res.status(500).json(err);
-  });
-};
-
 bookController.edit = (req, res) => {
   Book.findById(req.params.id)
     .then((book) => {
@@ -92,6 +80,32 @@ bookController.edit = (req, res) => {
       res.status(500).json(err);
     });
 };
+
+bookController.markRead = (req, res) => {
+  Book.findById(req.params.id)
+    .then((book) => {
+      res.render('/books/book-mark-read', {
+        currentPage: 'done',
+        book: book,
+        user: req.user,
+      })
+    }).catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+  });
+};
+
+bookController.userRate = (req, res) => {
+  Book.userRate({
+    userRating: req.body.rating,
+    userNotes: req.body.notes,
+  }, req.params.id).then(() => {
+    res.redirect(`/books/${req.params.id}`);
+  }).catch((err) => {
+    console.log(err);
+    res.status(500).json(err);
+  })
+}
 
 bookController.delete = (req, res) => {
   Book.destroy(req.params.id)

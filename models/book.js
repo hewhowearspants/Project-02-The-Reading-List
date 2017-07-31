@@ -36,7 +36,7 @@ Book.update = (book, id) => {
   `, [book.title, book.author, book.year, book.genre, book.description, id]);
 };
 
-Book.markRead = (book, id) => {
+Book.userRate = (book, id) => {
   return db.one(`
     UPDATE books SET
     read = true,

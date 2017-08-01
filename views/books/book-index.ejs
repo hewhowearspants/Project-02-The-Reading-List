@@ -10,10 +10,14 @@
       <div class='book-top'>
         <h3 id='title'><%= book.title %></h3>
         <h3 id='author'><%= book.author %></h3>
+        <% if (book.read === false) { %><p id='read'>Unread</p><% } %>
+        <% if (book.read === true) { %><p id='read'>Read</p><% } %>
       </div>
       <div class='book-bottom'>
         <p id='year'><%= book.year %></p>
         <div class='links'>
+          <% if (book.read === false) { %><a href='/books/<%= book.id %>/done'>Mark Read</a><% } %>
+          <% if (book.read === true) { %><a href='/books/<%= book.id %>/not-done'>Mark Unread</a><% } %>
           <a href='/books/<%= book.id %>'>Info</a>
           <a href='/books/<%= book.id %>/edit'>Edit</a>
           <form method='POST' action='/books/<%= book.id %>?_method=DELETE'>

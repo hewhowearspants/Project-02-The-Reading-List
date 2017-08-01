@@ -8,12 +8,16 @@
         <p><%= book.author %></p>
         <p><%= book.year %></p>
         <p><%= book.genre %></p>
+        <% if (book.read === false) { %><p id='read'>Unread</p><% } %>
+        <% if (book.read === true) { %><p id='read'>Read</p><% } %>
       </div>
       <div class='book-description'>
         <p><%= book.description %></p>
       </div>
       <div class='book-bottom'>
         <div class='links'>
+          <% if (book.read === false) { %><a href='/books/<%= book.id %>/done'>Mark Read</a><% } %>
+          <% if (book.read === true) { %><a href='/books/<%= book.id %>/not-done'>Mark Unread</a><% } %>
           <a href='/books/<%= book.id %>/edit'>Edit</a>
           <form method='POST' action='/books/<%= book.id %>?_method=DELETE'>
             <input type='submit' value='DELETE' />

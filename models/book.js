@@ -47,6 +47,17 @@ Book.userRate = (book, id) => {
   `, [book.userRating, book.userNotes, id]);
 };
 
+Book.userUnrate = (id) => {
+  return db.one(`
+    UPDATE books SET
+    read = false,
+    user_rating = NULL,
+    user_notes = NULL
+    WHERE id = $1
+    RETURNING *
+  `, [id]);
+};
+
 Book.destroy = (id) => {
   return db.none(`
     DELETE FROM books

@@ -84,7 +84,7 @@ bookController.edit = (req, res) => {
 bookController.markRead = (req, res) => {
   Book.findById(req.params.id)
     .then((book) => {
-      res.render('/books/book-mark-read', {
+      res.render('books/book-mark-read', {
         currentPage: 'done',
         book: book,
         user: req.user,
@@ -105,7 +105,17 @@ bookController.userRate = (req, res) => {
     console.log(err);
     res.status(500).json(err);
   })
-}
+};
+
+bookController.markUnread = (req, res) => {
+  Book.userUnrate(req.params.id)
+    .then(() => {
+      res.redirect(`/books`);
+    }).catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    })
+};
 
 bookController.delete = (req, res) => {
   Book.destroy(req.params.id)

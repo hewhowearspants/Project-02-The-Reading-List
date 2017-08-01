@@ -1,0 +1,16 @@
+<% include ../partials/boilerplate %>
+<% include ../partials/nav {user: user} %>
+
+<div class='input-container'>
+<form method='POST' action='/books/<%= book.id %>/done?_method=PUT'>
+  <h3>What did you think?</h3>
+  <input name='rating' type='number' placeholder='1-5' />
+  <textarea name='notes' type='text' placeholder='What did you think?'></textarea>
+  <input type='submit' value='Submit' />
+</form>
+</div>
+<div class='back'>
+  <a href='/books' id='back-button'>Back to the List</a>
+</div>
+
+<% include ../partials/end %>

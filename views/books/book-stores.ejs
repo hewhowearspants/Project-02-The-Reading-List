@@ -4,6 +4,8 @@
 <% for (let store of stores) { %>
   <p><%= store.name %></p>
   <p><%= store.address %></p>
+  <% let storeSearch = store.address.split().join('+'); %>
+  <a href='https://www.google.com/maps/search/?api=1&query=<%= store.address %>&query_place_id=<%= store.placeId %>' target='_blank'>Google Maps</a>
 <% } %>
 
 <% include ../partials/end %>

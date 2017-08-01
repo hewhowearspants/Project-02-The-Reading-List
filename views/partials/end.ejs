@@ -1,4 +1,10 @@
 <footer>
+  <% if (currentPage !== 'home') { %>
+  <form id='bookstore-request' method='GET'>
+    <input type='text' name='zip' placeholder='Zip Code' />
+    <input type='submit' value='Find a bookstore!' />
+  </form>
+  <% } %>
   <h3>Created by Ryan</h3>
 </footer>
 <script src='/src/main.js'></script>

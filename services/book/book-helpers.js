@@ -31,6 +31,7 @@ function getBookstores (req, res, next) {
         res.locals.stores.push({
           name: store.name,
           address: store.vicinity,
+          placeId: store.place_id,
         });
       };
       console.log(res.locals.stores);

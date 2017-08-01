@@ -3,6 +3,7 @@ const bookRoutes = express.Router();
 
 const bookController = require('../controllers/book-controller');
 const authHelpers = require('../services/auth/auth-helpers');
+const bookHelpers = require('../services/book/book-helpers');
 
 bookRoutes.get('/', authHelpers.loginRequired, bookController.index);
 bookRoutes.post('/', authHelpers.loginRequired, bookController.create);
@@ -13,6 +14,8 @@ bookRoutes.get('/add', authHelpers.loginRequired, (req, res) => {
     user: req.user,
   });
 });
+
+bookRoutes.get('/stores/:zip', bookHelpers.getGeocode, bookHelpers.getBookstores, bookController.sendBookstores);
 
 bookRoutes.get('/:id', authHelpers.loginRequired, bookController.show);
 bookRoutes.get('/:id/edit', authHelpers.loginRequired, bookController.edit);

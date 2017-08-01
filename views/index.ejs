@@ -4,7 +4,16 @@
 <div class='container'>
   <h1><%= message %></h1>
   <h3><%= subTitle %></h3>
+  <% if (!user) { %>
   <a href='/auth/login'>LOG IN</a>
+  <% } else if (user) { %>
+  <a href='/books'>YOUR LIST</a>
+  <% } %>
+  <form id='bookstore-request' method='GET'>
+    <input type='text' name='zip' placeholder='Zip Code' />
+    <input type='submit' value='Find a bookstore!' />
+  </form>
+
 </div>
 
 <% include ./partials/end %>

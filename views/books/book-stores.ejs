@@ -1,0 +1,9 @@
+<% include ../partials/boilerplate %>
+<% include ../partials/nav {user: user} %>
+
+<% for (let store of stores) { %>
+  <p><%= store.name %></p>
+  <p><%= store.address %></p>
+<% } %>
+
+<% include ../partials/end %>

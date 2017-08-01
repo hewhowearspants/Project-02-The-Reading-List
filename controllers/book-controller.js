@@ -135,4 +135,21 @@ bookController.delete = (req, res) => {
     });
 };
 
+bookController.sendBookstores = (req, res) => {
+  Book.findAll()
+    .then((books) => {
+      let stores = res.locals.stores;
+      console.log('found ' + res.locals.stores.length + ' bookstores!');
+      res.render('books/book-stores', {
+        currentPage: 'stores',
+        message: 'ok',
+        stores: stores,
+        user: req.user,
+      });
+    }).catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    })
+};
+
 module.exports = bookController;

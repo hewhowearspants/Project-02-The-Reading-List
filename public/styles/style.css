@@ -1,0 +1,22 @@
+body {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+nav, nav ul {
+  display: flex;
+  flex-direction: row;
+}
+
+nav {
+  justify-content: space-between;
+}
+
+nav #home {
+  margin: 5px;
+}
+
+nav ul li {
+  margin: 5px;
+}

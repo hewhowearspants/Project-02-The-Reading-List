@@ -1,19 +1,17 @@
 <% include ../partials/boilerplate %>
 <% include ../partials/nav {user: user} %>
-
+<div class='container'>
   <div class='unread-book-container'>
   <% if (unreadBooks.length === 0) { %>
     <h1>You have no books to read! :(</h1>
   <% } else { %>
-    <h1>Unread:</h1>
+    <h2>Unread:</h2>
   <% } %>
   <% for (let book of unreadBooks) { %>
     <div class='book'>
       <div class='book-top'>
         <h3 id='title'><%= book.title %></h3>
         <h3 id='author'><%= book.author %></h3>
-        <% if (book.read === false) { %><p id='read'>Unread</p><% } %>
-        <% if (book.read === true) { %><p id='read'>Read</p><% } %>
       </div>
       <div class='book-bottom'>
         <p id='year'><%= book.year %></p>
@@ -35,15 +33,13 @@
   <% if (readBooks.length === 0) { %>
     <h1>You have read no books! :(</h1>
   <% } else { %>
-    <h1>Read:</h1>
+    <h2>Read:</h2>
   <% } %>
   <% for (let book of readBooks) { %>
     <div class='book'>
       <div class='book-top'>
         <h3 id='title'><%= book.title %></h3>
         <h3 id='author'><%= book.author %></h3>
-        <% if (book.read === false) { %><p id='read'>Unread</p><% } %>
-        <% if (book.read === true) { %><p id='read'>Read</p><% } %>
       </div>
       <div class='book-bottom'>
         <p id='year'><%= book.year %></p>
@@ -60,5 +56,5 @@
     </div>
   <% } %>
   </div>
-
+</div>
 <% include ../partials/end %>

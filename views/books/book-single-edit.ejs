@@ -1,20 +1,20 @@
 <% include ../partials/boilerplate %>
 <% include ../partials/nav %>
-
-<div class='input-container'>
-  <% if (book.read === false) { %><a href='/books/<%= book.id %>/done'>Mark Read</a><% } %>
-  <% if (book.read === true) { %><a href='/books/<%= book.id %>/not-done'>Mark Unread</a><% } %>
-  <form method='POST' action='/books/<%= book.id %>?_method=PUT'>
-    <input name='title' type='text' value='<%= book.title %>' />
-    <input name='author' type='text' value='<%= book.author %>' />
-    <input name='year' type='number' value='<%= book.year %>' />
-    <input name='genre' type='text' value='<%= book.genre %>' />
-    <textarea name='description' type='text' value='<%= book.description %>'><%= book.description %></textarea>
-    <input type='submit' value='Edit it!' />
-  </form>
+<div class='container'>
+  <div class='input-container'>
+    <% if (book.read === false) { %><a href='/books/<%= book.id %>/done'>Mark Read</a><% } %>
+    <% if (book.read === true) { %><a href='/books/<%= book.id %>/not-done'>Mark Unread</a><% } %>
+    <form method='POST' action='/books/<%= book.id %>?_method=PUT'>
+      <input name='title' type='text' value='<%= book.title %>' />
+      <input name='author' type='text' value='<%= book.author %>' />
+      <input name='year' type='number' value='<%= book.year %>' />
+      <input name='genre' type='text' value='<%= book.genre %>' />
+      <textarea name='description' type='text' value='<%= book.description %>'><%= book.description %></textarea>
+      <input type='submit' value='Edit it!' />
+    </form>
+  </div>
+  <div class='back'>
+    <a href='/books' id='back-button'>Back to the List</a>
+  </div>
 </div>
-<div class='back'>
-  <a href='/books' id='back-button'>Back to the List</a>
-</div>
-
 <% include ../partials/end %>

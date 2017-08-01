@@ -152,4 +152,21 @@ bookController.sendBookstores = (req, res) => {
     })
 };
 
+bookController.sendBooks = (req, res) => {
+  Book.findAll()
+    .then((books) => {
+      let bookResults = res.locals.books;
+      console.log('found ' + res.locals.books.length + ' books!');
+      res.render('books/book-search', {
+        currentPage: 'search-results',
+        message: 'ok',
+        books: bookResults,
+        user: req.user,
+      });
+    }).catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    })
+};
+
 module.exports = bookController;

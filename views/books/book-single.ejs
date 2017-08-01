@@ -15,10 +15,14 @@
         <p><%= book.description %></p>
       </div>
       <% if (book.read === true) { %>
-      <div class='user-rating'>
-        <p><%= book.user_rating %></p>
+      <div class='user-feedback'>
+        <div class='user-rating'>
+        <% for (let i = 0; i < book.user_rating; i++) { %>
+          <i class="fa fa-star" aria-hidden="true"></i>
+        <% } %>
+        </div>
         <p><%= book.user_notes %></p>
-     </div> 
+      </div> 
       <% } %>
       <div class='book-bottom'>
         <div class='links'>

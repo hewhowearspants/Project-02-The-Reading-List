@@ -3,7 +3,7 @@
 
 <div class='container'>
   <h1><%= message %></h1>
-  <h3><%= subTitle %></h3>
+  <h3><i><%= subTitle %></i></h3>
   <% if (!user) { %>
   <a href='/auth/login'>LOG IN</a>
   <% } else if (user) { %>
@@ -11,7 +11,11 @@
   <% } %>
   <form id='bookstore-request' method='GET'>
     <input type='text' name='zip' placeholder='Zip Code' />
-    <input type='submit' value='Find a bookstore!' />
+    <input type='submit' value='Find bookstores!' />
+  </form>
+  <form id='book-request' method='GET'>
+    <input type='text' name='query' placeholder='Title or Author' />
+    <input type='submit' value='Find books!' />
   </form>
 
 </div>

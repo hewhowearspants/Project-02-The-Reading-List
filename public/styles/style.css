@@ -4,6 +4,21 @@ body {
   flex-direction: column;
 }
 
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 18px;
+  font-style: italic;
+}
+
 nav, nav ul {
   display: flex;
   flex-direction: row;
@@ -19,4 +34,89 @@ nav #home {
 
 nav ul li {
   margin: 5px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 50px;
+}
+
+.container .input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 50%;
+  min-width: 40%;
+  text-align: center;
+}
+
+.input-container form input {
+  margin: 3px;
+}
+
+.bookstore, .book {
+  margin: 10px;
+  border: solid 1px grey;
+  border-radius: 10px;
+}
+
+.book .user-feedback {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.user-feedback .user-rating {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 20%;
+}
+
+.bookstore div, .book div {
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.links {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.links a, .links input {
+  margin: 0 5px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  min-width: 100vw;
+  padding: 10px;
+  color: white;
+}
+
+@media screen and (min-width: 700px) {
+  .container {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .container div {
+    width: 90%
+  }
 }

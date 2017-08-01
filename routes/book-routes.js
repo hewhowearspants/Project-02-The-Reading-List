@@ -16,6 +16,7 @@ bookRoutes.get('/add', authHelpers.loginRequired, (req, res) => {
 });
 
 bookRoutes.get('/stores/:zip', bookHelpers.getGeocode, bookHelpers.getBookstores, bookController.sendBookstores);
+bookRoutes.get('/search/:query', bookHelpers.getBooks, bookController.sendBooks);
 
 bookRoutes.get('/:id', authHelpers.loginRequired, bookController.show);
 bookRoutes.get('/:id/edit', authHelpers.loginRequired, bookController.edit);

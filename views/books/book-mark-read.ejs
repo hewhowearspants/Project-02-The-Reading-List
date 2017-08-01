@@ -1,16 +1,27 @@
 <% include ../partials/boilerplate %>
 <% include ../partials/nav {user: user} %>
-
-<div class='input-container'>
-<form method='POST' action='/books/<%= book.id %>/done?_method=PUT'>
-  <h3>What did you think?</h3>
-  <input name='rating' type='number' placeholder='1-5' />
-  <textarea name='notes' type='text' placeholder='What did you think?'></textarea>
-  <input type='submit' value='Submit' />
-</form>
+<div class='container'>
+  <div class='input-container'>
+    <h3>What did you think?</h3>
+    <form method='POST' action='/books/<%= book.id %>/done?_method=PUT'>
+    <div class='rating'>
+      <input type='radio' id='rating-1' name='rating' value='1'>
+      <label for='rating-1'>1</label>
+      <input type='radio' id='rating-2' name='rating' value='2'>
+      <label for='rating-2'>2</label>
+      <input type='radio' id='rating-3' name='rating' value='3'>
+      <label for='rating-3'>3</label>
+      <input type='radio' id='rating-4' name='rating' value='4'>
+      <label for='rating-4'>4</label>
+      <input type='radio' id='rating-5' name='rating' value='5'>
+      <label for='rating-5'>5</label>
+    </div>
+    <textarea name='notes' type='text' placeholder='What did you think?'></textarea>
+    <input type='submit' value='Submit' />
+    </form>
+  </div>
+  <div class='back'>
+    <a href='/books' id='back-button'>Back to the List</a>
+  </div>
 </div>
-<div class='back'>
-  <a href='/books' id='back-button'>Back to the List</a>
-</div>
-
 <% include ../partials/end %>

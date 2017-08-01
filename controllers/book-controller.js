@@ -8,10 +8,18 @@ bookController.index = (req, res) => {
       let userBooks = books.filter((book) => {
         return book.user_id === req.user.id;
       });
+      let readBooks = userBooks.filter((book) => {
+        return book.read;
+      });
+      let unreadBooks = userBooks.filter((book) => {
+        return !book.read;
+      });
       res.render('books/book-index', {
         currentPage: 'index',
         message: 'ok',
         books: userBooks,
+        unreadBooks: unreadBooks,
+        readBooks: readBooks,
         user: req.user,
       });
     }).catch((err) => {

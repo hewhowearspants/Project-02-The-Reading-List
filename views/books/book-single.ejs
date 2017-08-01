@@ -14,6 +14,12 @@
       <div class='book-description'>
         <p><%= book.description %></p>
       </div>
+      <% if (book.read === true) { %>
+      <div class='user-rating'>
+        <p><%= book.user_rating %></p>
+        <p><%= book.user_notes %></p>
+     </div> 
+      <% } %>
       <div class='book-bottom'>
         <div class='links'>
           <% if (book.read === false) { %><a href='/books/<%= book.id %>/done'>Mark Read</a><% } %>
@@ -24,7 +30,6 @@
           </form>
         </div>
       </div>
-     </div> 
   </div>
   <div class='back'>
     <a href='/books' id='back-button'>Back to the List</a>

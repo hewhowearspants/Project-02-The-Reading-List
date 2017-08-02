@@ -30,6 +30,10 @@ a {
   text-decoration: none;
 }
 
+input {
+  outline: none;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -127,6 +131,7 @@ nav button {
   border: solid 2px white;
   color: white;
   background-color: transparent;
+  outline: none;
 }
 
 .input-container form input[type='submit'],
@@ -145,6 +150,8 @@ nav button {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  padding: 10px;
 }
 
 .user-feedback .user-rating {
@@ -152,6 +159,8 @@ nav button {
   flex-direction: row;
   justify-content: space-around;
   width: 20%;
+  padding: 10px;
+  font-size: 20px;
 }
 
 .store .store-info, .book .book-top {
@@ -191,7 +200,7 @@ footer {
   left: 0;
   background-color: rgba(0,0,0,.75);
   min-width: 100vw;
-  padding: 10px;
+  /* padding: 10px; */
   color: rgba(255,255,255,1);
 }
 
@@ -201,12 +210,21 @@ footer div {
 }
 
 footer .footer-search {
+  display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%
 }
 
-.footer-search form {
-  margin: 0px 10px 10px 10px;
+.footer-search form input{
+  margin: 10px 0px 10px 10px; 
+  padding: 0 7px;
+  font-size: 14px;
+  background-color: transparent;
+  color: white;
+  border-radius: 14px;
+  border-top: none;
+  border-bottom: none;
 }
 
 footer .credits {
@@ -214,6 +232,7 @@ footer .credits {
   justify-content: space-between;
   align-items: space-between;
   width: 90vw;
+  padding: 10px;
 }
 
 /* Below styling borrowed from http://www.cssscript.com/simple-5-star-rating-system-with-css-and-html-radios/ */

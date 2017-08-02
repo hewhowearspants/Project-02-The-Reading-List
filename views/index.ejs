@@ -1,22 +1,24 @@
 <% include ./partials/boilerplate %>
 <% include ./partials/nav {user: user} %>
 
-<div class='container'>
+<div class='splash-container'>
   <h1><%= message %></h1>
   <h3><i><%= subTitle %></i></h3>
-  <% if (!user) { %>
+  <!-- <% if (!user) { %>
   <a href='/auth/login'>LOG IN</a>
   <% } else if (user) { %>
   <a href='/books'>YOUR LIST</a>
-  <% } %>
-  <form id='bookstore-request' method='GET'>
-    <input type='text' name='zip' placeholder='Zip Code' />
-    <input type='submit' value='Find bookstores!' />
-  </form>
-  <form id='book-request' method='GET'>
-    <input type='text' name='query' placeholder='Title or Author' />
-    <input type='submit' value='Find books!' />
-  </form>
+  <% } %> -->
+  <div class='search-box'>
+    <form id='bookstore-request' method='GET'>
+      <input type='text' name='zip' max=5 placeholder='Zip Code' />
+      <input type='submit' value='Find bookstores!' />
+    </form>
+    <form id='book-request' method='GET'>
+      <input type='text' name='query' placeholder='Title or Author' />
+      <input type='submit' value='Find books!' />
+    </form>
+  </div>
 
 </div>
 

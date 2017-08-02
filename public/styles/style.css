@@ -36,6 +36,25 @@ nav ul li {
   margin: 5px;
 }
 
+.splash-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0px auto; 
+  justify-content: center;
+  align-items: center;
+  height: 95vw;
+  width: 80vw;
+  background-color: lightblue;
+}
+
+.splash-container .search-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 50%;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -91,10 +110,14 @@ nav ul li {
 .links {
   display: flex;
   justify-content: flex-end;
+  font-size: 18px;
 }
 
-.links a, .links input {
+.links button {
   margin: 0 5px;
+  font-size: 20px;
+  width: 40px;
+  border-radius: 5px;
 }
 
 footer {

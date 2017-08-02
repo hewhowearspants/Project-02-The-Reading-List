@@ -3,7 +3,7 @@
 <div class='container'>
   <div class='input-container'>
     <h3>Rate this book!</h3>
-    <form method='POST' action='/books/<%= book.id %>/done?_method=PUT'>
+    <form class='feedback' method='POST' action='/books/<%= book.id %>/done?_method=PUT'>
     <!-- 
       The following div's code inspired from http://www.cssscript.com/simple-5-star-rating-system-with-css-and-html-radios/
      -->
@@ -22,9 +22,9 @@
       <textarea name='notes' type='text' placeholder='What did you think?'></textarea>
       <input type='submit' value='Submit' />
     </form>
-  </div>
-  <div class='back'>
-    <a href='/books' id='back-button'>Back to the List</a>
+    <div class='back'>
+      <a href='/books' id='back-button'>Back to the List</a>
+    </div>
   </div>
 </div>
 <% include ../partials/end %>

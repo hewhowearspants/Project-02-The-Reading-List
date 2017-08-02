@@ -10,9 +10,10 @@
       <textarea name='description' type='text' value='<%= book.description %>'><%= book.description %></textarea>
       <input type='submit' value='Edit it!' />
     </form>
+    <div class='back'>
+      <a href='/books/<%= book.id %>' id='back-button'>Back to the Book</a>
+    </div>
   </div>
-  <div class='back'>
-    <a href='/books/<%= book.id %>' id='back-button'>Back to the Book</a>
-  </div>
+
 </div>
 <% include ../partials/end %>

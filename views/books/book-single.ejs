@@ -2,11 +2,10 @@
 <% include ../partials/nav {user: user} %>
 
   <div class='book-container'>
-     <div class='book'> 
+    <div class='book'> 
       <div class='book-top'>
-        <h3><%= book.title %></h3>
+        <h3><%= book.title %> (<%= book.year %>)</h3>
         <p><%= book.author %></p>
-        <p><%= book.year %></p>
         <p><%= book.genre %></p>
         <% if (book.read === false) { %><p id='read'>Unread</p><% } %>
         <% if (book.read === true) { %><p id='read'>Read</p><% } %>
@@ -24,19 +23,28 @@
         <p><%= book.user_notes %></p>
       </div> 
       <% } %>
-      <div class='book-bottom'>
-        <div class='links'>
-          <% if (book.read === false) { %><a href='/books/<%= book.id %>/done'>Mark Read</a><% } %>
-          <% if (book.read === true) { %><a href='/books/<%= book.id %>/not-done'>Mark Unread</a><% } %>
-          <a href='/books/<%= book.id %>/edit'>Edit</a>
-          <form method='POST' action='/books/<%= book.id %>?_method=DELETE'>
-            <input type='submit' value='DELETE' />
+      <div class='links'>
+          <% if (book.read === false) { %>
+            <form>
+              <button class='mark-read-button' type='submit' formmethod='GET' formaction='/books/<%= book.id %>/done'><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+            </form>
+          <% } %>
+          <% if (book.read === true) { %>
+            <form>
+              <button class='mark-unread-button' type='submit' formmethod='GET' formaction='/books/<%= book.id %>/not-done'><i class="fa fa-square-o" aria-hidden="true"></i></button>
+            </form>
+          <% } %>
+          <form>
+            <button class='edit-button' type='submit' formmethod='GET' formaction='/books/<%= book.id %>/edit'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
           </form>
-        </div>
+          <form>
+            <button class='delete-button' type='submit' formmethod='POST' formaction='/books/<%= book.id %>?_method=DELETE'><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+          </form>
       </div>
-  </div>
-  <div class='back'>
-    <a href='/books' id='back-button'>Back to the List</a>
+    </div>
+    <div class='back'>
+      <a href='/books' id='back-button'>Back to the List</a>
+    </div>
   </div>
 
 <% include ../partials/end %>

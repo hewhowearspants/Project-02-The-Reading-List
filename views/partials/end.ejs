@@ -1,15 +1,20 @@
 <footer>
   <% if (currentPage !== 'home') { %>
-  <form id='bookstore-request' method='GET'>
-    <input type='text' name='zip' maxlength=5 size=5 placeholder='ZIP' />
-    <input type='submit' value='Find a bookstore!' />
-  </form>
-  <form id='book-request' method='GET'>
-    <input type='text' name='query' placeholder='Title or Author' />
-    <input type='submit' value='Find books!' />
-  </form>
+  <div class='footer-search'>
+    <form id='bookstore-request' method='GET'>
+      <input type='text' name='zip' maxlength=5 size=5 placeholder='ZIP' />
+      <input type='submit' value='Find a bookstore!' />
+    </form>
+    <form id='book-request' method='GET'>
+      <input type='text' name='query' placeholder='Title or Author' />
+      <input type='submit' value='Find books!' />
+    </form>
+  </div>
   <% } %>
-  <h3>Created by Ryan</h3>
+  <div class='credits'>
+    <h3>Created by Ryan</h3>
+    <p>Photo by Mareks Steins on Unsplash</p>
+  </div>
 </footer>
 <script src='/src/main.js'></script>
 </body>

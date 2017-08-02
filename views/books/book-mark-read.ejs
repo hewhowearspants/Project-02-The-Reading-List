@@ -2,22 +2,25 @@
 <% include ../partials/nav {user: user} %>
 <div class='container'>
   <div class='input-container'>
-    <h3>What did you think?</h3>
+    <h3>Rate this book!</h3>
     <form method='POST' action='/books/<%= book.id %>/done?_method=PUT'>
-    <div class='rating'>
-      <input type='radio' id='rating-1' name='rating' value='1'>
-      <label for='rating-1'>1</label>
-      <input type='radio' id='rating-2' name='rating' value='2'>
-      <label for='rating-2'>2</label>
-      <input type='radio' id='rating-3' name='rating' value='3'>
-      <label for='rating-3'>3</label>
-      <input type='radio' id='rating-4' name='rating' value='4'>
-      <label for='rating-4'>4</label>
-      <input type='radio' id='rating-5' name='rating' value='5'>
-      <label for='rating-5'>5</label>
-    </div>
-    <textarea name='notes' type='text' placeholder='What did you think?'></textarea>
-    <input type='submit' value='Submit' />
+    <!-- 
+      The following div's code inspired from http://www.cssscript.com/simple-5-star-rating-system-with-css-and-html-radios/
+     -->
+      <div class='rating'>
+        <input class="star star-5" id="star-5" type="radio" name="rating" value='5'/>
+        <label class="star star-5" for="star-5"></label>
+        <input class="star star-4" id="star-4" type="radio" name="rating" value='4'/>
+        <label class="star star-4" for="star-4"></label>
+        <input class="star star-3" id="star-3" type="radio" name="rating" value='3'/>
+        <label class="star star-3" for="star-3"></label>
+        <input class="star star-2" id="star-2" type="radio" name="rating" value='2'/>
+        <label class="star star-2" for="star-2"></label>
+        <input class="star star-1" id="star-1" type="radio" name="rating" value='1'/>
+        <label class="star star-1" for="star-1"></label>
+      </div>
+      <textarea name='notes' type='text' placeholder='What did you think?'></textarea>
+      <input type='submit' value='Submit' />
     </form>
   </div>
   <div class='back'>

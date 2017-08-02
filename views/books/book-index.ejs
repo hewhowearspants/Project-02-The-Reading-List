@@ -10,11 +10,10 @@
   <% for (let book of unreadBooks) { %>
     <div class='book'>
       <div class='book-top'>
-        <h3 id='title'><%= book.title %></h3>
-        <h3 id='author'><%= book.author %></h3>
+        <h3 id='title'><%= book.title %> (<%= book.year %>)</h3>
+        <p id='author'><%= book.author %></p>
       </div>
       <div class='book-bottom'>
-        <p id='year'><%= book.year %></p>
         <div class='links'>
           <% if (book.read === false) { %>
             <form>
@@ -50,11 +49,10 @@
   <% for (let book of readBooks) { %>
     <div class='book'>
       <div class='book-top'>
-        <h3 id='title'><%= book.title %></h3>
-        <h3 id='author'><%= book.author %></h3>
+        <h3 id='title'><%= book.title %> (<%= book.year %>)</h3>
+        <p id='author'><%= book.author %></p>
       </div>
       <div class='book-bottom'>
-        <p id='year'><%= book.year %></p>
         <div class='links'>
           <% if (book.read === false) { %>
             <form>

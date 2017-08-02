@@ -2,8 +2,6 @@
 <% include ../partials/nav %>
 <div class='container'>
   <div class='input-container'>
-    <% if (book.read === false) { %><a href='/books/<%= book.id %>/done'>Mark Read</a><% } %>
-    <% if (book.read === true) { %><a href='/books/<%= book.id %>/not-done'>Mark Unread</a><% } %>
     <form method='POST' action='/books/<%= book.id %>?_method=PUT'>
       <input name='title' type='text' value='<%= book.title %>' />
       <input name='author' type='text' value='<%= book.author %>' />
@@ -14,7 +12,7 @@
     </form>
   </div>
   <div class='back'>
-    <a href='/books' id='back-button'>Back to the List</a>
+    <a href='/books/<%= book.id %>' id='back-button'>Back to the Book</a>
   </div>
 </div>
 <% include ../partials/end %>

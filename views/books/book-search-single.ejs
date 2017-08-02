@@ -1,0 +1,29 @@
+<% include ../partials/boilerplate %>
+<% include ../partials/nav {user: user} %>
+
+  <div class='book-container'>
+     <div class='book'> 
+      <div class='book-top'>
+        <h3><%= book.title %></h3>
+        <p><%= book.author %></p>
+        <p><%= book.year %></p>
+        <p><%= book.genre %></p>
+      </div>
+      <div class='book-description'>
+        <p><%= book.description %></p>
+      </div>
+      <div class='book-bottom'>
+        <div class='links'>
+          <% if (user) { %>
+          <form>
+            <button class='add-button' type='submit' formmethod='POST' formaction='/books/search/<%= query %>/<%= book.searchId %>'><i class="fa fa-plus" aria-hidden="true"></i><i class="fa fa-book" aria-hidden="true"></i></button>
+          </form>
+          <% } %>
+        </div>
+      </div>
+  </div>
+  <div class='back'>
+    <a href='/books/search/<%= query %>' id='back-button'>Back to Results</a>
+  </div>
+
+<% include ../partials/end %>

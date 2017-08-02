@@ -4,20 +4,30 @@
     <% if (user) { %>
     <li><p>Hello <%= user.firstname %>!</p></li>
     <li <% if (currentPage === 'add') { %>class='highlight-button'<% } %>>
-      <a href='/books/add'>Add a new book</a>
+      <form>
+        <button class='add-button' type='submit' formmethod='GET' formaction='/books/add'><i class="fa fa-plus" aria-hidden="true"></i><i class="fa fa-book" aria-hidden="true"></i></button>
+      </form>
     </li>
     <li <% if (currentPage === 'index') { %>class='highlight-button'<% } %>>
-      <a href='/books'>Your List</a>
+      <form>
+        <button class='list-button' type='submit' formmethod='GET' formaction='/books'><i class="fa fa-list-ul" aria-hidden="true"></i></button>
+      </form>
     </li>
     <li>
-      <a href='/auth/logout'>Logout</a>
+      <form>
+        <button class='logout-button' type='submit' formmethod='GET' formaction='/auth/logout'><i class="fa fa-sign-out" aria-hidden="true"></i></button>
+      </form>
     </li>
     <% } else { %>
     <li <% if (currentPage === 'login') { %>class='highlight-button'<% } %>>
-      <a href='/auth/login'>Login</a>
+      <form>
+        <button class='login-button' type='submit' formmethod='GET' formaction='/auth/login'><i class="fa fa-sign-in" aria-hidden="true"></i></button>
+      </form>
     </li>
     <li <% if (currentPage === 'register') { %>class='highlight-button'<% } %>>
-      <a href='/auth/register'>Register</a>
+      <form>
+        <button class='register-button' type='submit' formmethod='GET' formaction='/auth/register'><i class="fa fa-user-plus" aria-hidden="true"></i></button>
+      </form>
     </li>
     <% } %>
 

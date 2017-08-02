@@ -49,15 +49,21 @@ function getBooks (req, res, next) {
     }).then((jsonRes) => {
       let results = jsonRes.items;
       res.locals.books = [];
+      let searchId = 1;
       for (let book of results) {
         res.locals.books.push({
           title: book.volumeInfo.title ? book.volumeInfo.title : null,
           author: book.volumeInfo.authors ? book.volumeInfo.authors[0] : null,
           year: book.volumeInfo.publishedDate ? book.volumeInfo.publishedDate.slice(0,4) : null,
-          description: book.searchInfo ? book.searchInfo.textSnippet : null,
+          genre: book.volumeInfo.categories ? book.volumeInfo.categories[0] : null,
+          shortDescription: book.searchInfo ? book.searchInfo.textSnippet : null,
+          description: book.volumeInfo.description ? book.volumeInfo.description : null,
+          searchId: searchId,
         });
+        console.log(book.volumeInfo.title, searchId);
+        searchId++;
       };
-      console.log(res.locals.books);
+      // console.log(res.locals.books);
       next();
     });
 

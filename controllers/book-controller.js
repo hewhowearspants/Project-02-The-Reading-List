@@ -43,6 +43,21 @@ bookController.show = (req, res) => {
     });
 };
 
+bookController.showFromSearch = (req, res) => {
+  for (let book of res.locals.books) {
+    if (book.searchId === parseInt(req.params.id)) {
+      var bookToShow = book;
+    };
+  };
+  res.render('books/book-search-single', {
+    currentPage: 'show-from-search',
+    message: 'ok',
+    book: bookToShow,
+    user: req.user,
+    query: req.params.query,
+  });
+}
+
 bookController.create = (req, res) => {
   Book.create({
     title: req.body.title,
@@ -50,6 +65,28 @@ bookController.create = (req, res) => {
     year: req.body.year,
     genre: req.body.genre,
     description: req.body.description,
+    read: false,
+    userId: req.user.id,
+  }).then((book) => {
+    res.redirect('/books');
+  }).catch((err) => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+};
+
+bookController.createFromSearch = (req, res) => {
+  for (let book of res.locals.books) {
+    if (book.searchId === parseInt(req.params.id)) {
+      var bookToAdd = book;
+    };
+  };
+  Book.create({
+    title: bookToAdd.title,
+    author: bookToAdd.author,
+    year: bookToAdd.year,
+    genre: bookToAdd.genre,
+    description: bookToAdd.description,
     read: false,
     userId: req.user.id,
   }).then((book) => {
@@ -162,6 +199,7 @@ bookController.sendBooks = (req, res) => {
         message: 'ok',
         books: bookResults,
         user: req.user,
+        query: req.params.query,
       });
     }).catch((err) => {
       console.log(err);

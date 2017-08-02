@@ -1,7 +1,7 @@
 <footer>
   <% if (currentPage !== 'home') { %>
   <form id='bookstore-request' method='GET'>
-    <input type='text' name='zip' placeholder='Zip Code' />
+    <input type='text' name='zip' maxlength=5 size=5 placeholder='ZIP' />
     <input type='submit' value='Find a bookstore!' />
   </form>
   <form id='book-request' method='GET'>

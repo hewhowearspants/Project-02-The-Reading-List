@@ -18,22 +18,22 @@
         <div class='links'>
           <% if (book.read === false) { %>
             <form>
-              <button type='submit' formmethod='GET' formaction='/books/<%= book.id %>/done'><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+              <button class='mark-read-button' type='submit' formmethod='GET' formaction='/books/<%= book.id %>/done'><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
             </form>
           <% } %>
           <% if (book.read === true) { %>
             <form>
-              <button type='submit' formmethod='GET' formaction='/books/<%= book.id %>/not-done'><i class="fa fa-square-o" aria-hidden="true"></i></button>
+              <button class='mark-unread-button' type='submit' formmethod='GET' formaction='/books/<%= book.id %>/not-done'><i class="fa fa-square-o" aria-hidden="true"></i></button>
             </form>
           <% } %>
           <form>
-            <button type='submit' formmethod='GET' formaction='/books/<%= book.id %>'><i class="fa fa-info" aria-hidden="true"></i></button>
+            <button class='info-button' type='submit' formmethod='GET' formaction='/books/<%= book.id %>'><i class="fa fa-info" aria-hidden="true"></i></button>
           </form>
           <form>
-            <button type='submit' formmethod='GET' formaction='/books/<%= book.id %>/edit'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+            <button class='edit-button' type='submit' formmethod='GET' formaction='/books/<%= book.id %>/edit'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
           </form>
           <form>
-            <button type='submit' formmethod='POST' formaction='/books/<%= book.id %>?_method=DELETE'><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+            <button class='delete-button' type='submit' formmethod='POST' formaction='/books/<%= book.id %>?_method=DELETE'><i class="fa fa-trash-o" aria-hidden="true"></i></button>
           </form>
         </div>
       </div>
@@ -58,22 +58,22 @@
         <div class='links'>
           <% if (book.read === false) { %>
             <form>
-              <button type='submit' formmethod='GET' formaction='/books/<%= book.id %>/done'><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+              <button class='mark-read-button' type='submit' formmethod='GET' formaction='/books/<%= book.id %>/done'><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
             </form>
           <% } %>
           <% if (book.read === true) { %>
             <form>
-              <button type='submit' formmethod='GET' formaction='/books/<%= book.id %>/not-done'><i class="fa fa-square-o" aria-hidden="true"></i></button>
+              <button class='mark-unread-button' type='submit' formmethod='GET' formaction='/books/<%= book.id %>/not-done'><i class="fa fa-square-o" aria-hidden="true"></i></button>
             </form>
           <% } %>
           <form>
-            <button type='submit' formmethod='GET' formaction='/books/<%= book.id %>'><i class="fa fa-info" aria-hidden="true"></i></button>
+            <button class='info-button' type='submit' formmethod='GET' formaction='/books/<%= book.id %>'><i class="fa fa-info" aria-hidden="true"></i></button>
           </form>
           <form>
-            <button type='submit' formmethod='GET' formaction='/books/<%= book.id %>/edit'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+            <button class='edit-button' type='submit' formmethod='GET' formaction='/books/<%= book.id %>/edit'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
           </form>
           <form>
-            <button type='submit' formmethod='POST' formaction='/books/<%= book.id %>?_method=DELETE'><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+            <button class='delete-button' type='submit' formmethod='POST' formaction='/books/<%= book.id %>?_method=DELETE'><i class="fa fa-trash-o" aria-hidden="true"></i></button>
           </form>
         </div>
       </div>

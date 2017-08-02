@@ -7,7 +7,18 @@
       <p><%= book.title %></p>
       <p><%= book.author %></p>
       <p><%= book.year %></p>
-      <p><%= book.description %></p>
+      <p><%= book.genre %></p>
+      <p><%= book.shortDescription %></p>
+      <div class='links'>
+        <% if (user) { %>
+        <form>
+          <button class='add-button' type='submit' formmethod='POST' formaction='/books/search/<%= query %>/<%= book.searchId %>'><i class="fa fa-plus" aria-hidden="true"></i><i class="fa fa-book" aria-hidden="true"></i></button>
+        </form>
+        <% } %>
+        <form>
+            <button class='info-button' type='submit' formmethod='GET' formaction='/books/search/<%= query %>/<%= book.searchId %>'><i class="fa fa-info" aria-hidden="true"></i></button>
+        </form>
+      </div>
     </div>
     <% } %>
   </div>

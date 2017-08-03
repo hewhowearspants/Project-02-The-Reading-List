@@ -9,11 +9,17 @@
   <div class='search-container'>
     <form id='bookstore-request' method='GET'>
       <input type='text' name='zip' maxlength=5 size=5 placeholder='ZIP' />
-      <input type='submit' value='Find bookstores!' />
+      <button type='submit' id='bookstore-request-button'>
+        <i class="fa fa-search" aria-hidden="true"></i>
+      </button>
+      <!-- <input type='submit' value='Find bookstores!' /> -->
     </form>
     <form id='book-request' method='GET'>
       <input type='text' name='query' placeholder='Title or Author' />
-      <input type='submit' value='Find books!' />
+      <button type='submit' id='book-request-button'>
+        <i class="fa fa-search" aria-hidden="true"></i>
+      </button>
+      <!-- <input type='submit' value='Find books!' /> -->
     </form>
   </div>
 </div>

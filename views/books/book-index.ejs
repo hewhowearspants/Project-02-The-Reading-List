@@ -13,33 +13,31 @@
         <h3 id='title'><%= book.title %> (<%= book.year %>)</h3>
         <p id='author'><%= book.author %></p>
       </div>
-      <div class='book-bottom'>
-        <div class='links'>
-          <% if (book.read === false) { %>
-            <form class='button'>
-              <p class='button-label hidden'>Read It</p>
-              <button id='mark-read-button' type='submit' formmethod='GET' formaction='/books/<%= book.id %>/done'><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
-            </form>
-          <% } %>
-          <% if (book.read === true) { %>
-            <form class='button'>
-              <p class='button-label hidden'>Unread It</p>
-              <button id='mark-unread-button' type='submit' formmethod='GET' formaction='/books/<%= book.id %>/not-done'><i class="fa fa-square-o" aria-hidden="true"></i></button>
-            </form>
-          <% } %>
+      <div class='links'>
+        <% if (book.read === false) { %>
           <form class='button'>
-            <p class='button-label hidden'>Info</p>
-            <button id='info-button' type='submit' formmethod='GET' formaction='/books/<%= book.id %>'><i class="fa fa-info" aria-hidden="true"></i></button>
+            <p class='button-label hidden'>Read It</p>
+            <button id='mark-read-button' type='submit' formmethod='GET' formaction='/books/<%= book.id %>/done'><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
           </form>
+        <% } %>
+        <% if (book.read === true) { %>
           <form class='button'>
-            <p class='button-label hidden'>Edit</p>
-            <button id='edit-button' type='submit' formmethod='GET' formaction='/books/<%= book.id %>/edit'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+            <p class='button-label hidden'>Unread It</p>
+            <button id='mark-unread-button' type='submit' formmethod='GET' formaction='/books/<%= book.id %>/not-done'><i class="fa fa-square-o" aria-hidden="true"></i></button>
           </form>
-          <form class='button'>
-            <p class='button-label hidden'>Delete</p>
-            <button id='delete-button' type='submit' formmethod='POST' formaction='/books/<%= book.id %>?_method=DELETE'><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-          </form>
-        </div>
+        <% } %>
+        <form class='button'>
+          <p class='button-label hidden'>Info</p>
+          <button id='info-button' type='submit' formmethod='GET' formaction='/books/<%= book.id %>'><i class="fa fa-info" aria-hidden="true"></i></button>
+        </form>
+        <form class='button'>
+          <p class='button-label hidden'>Edit</p>
+          <button id='edit-button' type='submit' formmethod='GET' formaction='/books/<%= book.id %>/edit'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+        </form>
+        <form class='button'>
+          <p class='button-label hidden'>Delete</p>
+          <button id='delete-button' type='submit' formmethod='POST' formaction='/books/<%= book.id %>?_method=DELETE'><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+        </form>
       </div>
     </div>
   <% } %>
@@ -57,33 +55,31 @@
         <h3 id='title'><%= book.title %> (<%= book.year %>)</h3>
         <p id='author'><%= book.author %></p>
       </div>
-      <div class='book-bottom'>
-        <div class='links'>
-          <% if (book.read === false) { %>
-            <form class='button'>
-              <p class='button-label hidden'>Read It</p>
-              <button id='mark-read-button' type='submit' formmethod='GET' formaction='/books/<%= book.id %>/done'><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
-            </form>
-          <% } %>
-          <% if (book.read === true) { %>
-            <form class='button'>
-              <p class='button-label hidden'>Unread It</p>
-              <button id='mark-unread-button' type='submit' formmethod='GET' formaction='/books/<%= book.id %>/not-done'><i class="fa fa-square-o" aria-hidden="true"></i></button>
-            </form>
-          <% } %>
+      <div class='links'>
+        <% if (book.read === false) { %>
           <form class='button'>
-            <p class='button-label hidden'>Info</p>
-            <button id='info-button' type='submit' formmethod='GET' formaction='/books/<%= book.id %>'><i class="fa fa-info" aria-hidden="true"></i></button>
+            <p class='button-label hidden'>Read It</p>
+            <button id='mark-read-button' type='submit' formmethod='GET' formaction='/books/<%= book.id %>/done'><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
           </form>
+        <% } %>
+        <% if (book.read === true) { %>
           <form class='button'>
-            <p class='button-label hidden'>Edit</p>
-            <button id='edit-button' type='submit' formmethod='GET' formaction='/books/<%= book.id %>/edit'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+            <p class='button-label hidden'>Unread It</p>
+            <button id='mark-unread-button' type='submit' formmethod='GET' formaction='/books/<%= book.id %>/not-done'><i class="fa fa-square-o" aria-hidden="true"></i></button>
           </form>
-          <form class='button'>
-            <p class='button-label hidden'>Delete</p>
-            <button id='delete-button' type='submit' formmethod='POST' formaction='/books/<%= book.id %>?_method=DELETE'><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-          </form>
-        </div>
+        <% } %>
+        <form class='button'>
+          <p class='button-label hidden'>Info</p>
+          <button id='info-button' type='submit' formmethod='GET' formaction='/books/<%= book.id %>'><i class="fa fa-info" aria-hidden="true"></i></button>
+        </form>
+        <form class='button'>
+          <p class='button-label hidden'>Edit</p>
+          <button id='edit-button' type='submit' formmethod='GET' formaction='/books/<%= book.id %>/edit'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+        </form>
+        <form class='button'>
+          <p class='button-label hidden'>Delete</p>
+          <button id='delete-button' type='submit' formmethod='POST' formaction='/books/<%= book.id %>?_method=DELETE'><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+        </form>
       </div>
     </div>
   <% } %>

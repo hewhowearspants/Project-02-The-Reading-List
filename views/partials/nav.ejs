@@ -28,15 +28,19 @@
       </form>
     </li>
     <% } else { %>
-    <li <% if (currentPage === 'login') { %>class='highlight-button'<% } %>>
+    <li>
       <form class='button'>
-        <button id='login-button' type='submit' formmethod='GET' formaction='/auth/login'><i class="fa fa-sign-in" aria-hidden="true"></i></button>
+        <button id='login-button' type='submit' formmethod='GET' formaction='/auth/login' <% if (currentPage === 'login') { %>class='highlight-button'<% } %>>
+          <i class="fa fa-sign-in" aria-hidden="true"></i>
+        </button>
         <p class='button-label hidden'>Login</p>
       </form>
     </li>
-    <li <% if (currentPage === 'register') { %>class='highlight-button'<% } %>>
+    <li>
       <form class='button'>
-        <button id='register-button hidden' type='submit' formmethod='GET' formaction='/auth/register'><i class="fa fa-user-plus" aria-hidden="true"></i></button>
+        <button id='register-button hidden' type='submit' formmethod='GET' formaction='/auth/register' <% if (currentPage === 'register') { %>class='highlight-button'<% } %>>
+          <i class="fa fa-user-plus" aria-hidden="true"></i>
+        </button>
         <p class='button-label hidden'>Register</p>
       </form>
     </li>

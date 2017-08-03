@@ -5,8 +5,10 @@
     <form method='POST' action='/books/<%= book.id %>?_method=PUT'>
       <input name='title' type='text' value='<%= book.title %>' />
       <input name='author' type='text' value='<%= book.author %>' />
-      <input name='year' type='number' value='<%= book.year %>' />
-      <input name='genre' type='text' value='<%= book.genre %>' />
+      <div class='year-genre'>
+        <input name='year' type='text' maxlength='4' size='4' value='<%= book.year %>' />
+        <input name='genre' type='text' value='<%= book.genre %>' />
+      </div>
       <textarea name='description' type='text' value='<%= book.description %>'><%= book.description %></textarea>
       <input type='submit' value='Edit it!' />
     </form>

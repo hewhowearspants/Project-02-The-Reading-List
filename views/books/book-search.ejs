@@ -1,6 +1,6 @@
 <% include ../partials/boilerplate %>
 <% include ../partials/nav {user: user} %>
-<div class='container'>
+ <div class='container'> 
   <div class='search-results-container'>
     <% for (let book of books) { %>
     <div class='book'>
@@ -13,16 +13,18 @@
       </div>
       <div class='links'>
         <% if (user) { %>
-        <form>
-          <button class='add-button' type='submit' formmethod='POST' formaction='/books/search/<%= query %>/<%= book.searchId %>'><i class="fa fa-plus" aria-hidden="true"></i><i class="fa fa-book" aria-hidden="true"></i></button>
+        <form class='button'>
+          <p class='button-label hidden'>Add to List</p>
+          <button id='add-button' type='submit' formmethod='POST' formaction='/books/search/<%= query %>/<%= book.searchId %>'><i class="fa fa-plus" aria-hidden="true"></i><i class="fa fa-book" aria-hidden="true"></i></button>
         </form>
         <% } %>
-        <form>
-            <button class='info-button' type='submit' formmethod='GET' formaction='/books/search/<%= query %>/<%= book.searchId %>'><i class="fa fa-info" aria-hidden="true"></i></button>
+        <form class='button'>
+            <p class='button-label hidden'>Info</p>
+            <button id='info-button' type='submit' formmethod='GET' formaction='/books/search/<%= query %>/<%= book.searchId %>'><i class="fa fa-info" aria-hidden="true"></i></button>
         </form>
       </div>
     </div>
     <% } %>
   </div>
-</div>
+ </div> 
 <% include ../partials/end %>

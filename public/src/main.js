@@ -2,6 +2,21 @@ $(() => {
   console.log('main.js loaded');
   const bookstoreForm = $('#bookstore-request');
   const bookForm = $('#book-request');
+
+  let buttons = $('button');
+  // console.log(buttons);
+  buttons.hover(
+    (e) => { 
+      let $thisButton = $(e.target);
+      let $thisForm = $thisButton.parent();
+      $thisForm.find('.button-label').removeClass('hidden'); 
+    },
+    (e) => { 
+      let $thisButton = $(e.target);
+      let $thisForm = $thisButton.parent();
+      $thisForm.find('.button-label').addClass('hidden');  
+    }
+  );
   bookstoreForm.on('submit', (event) => getBookstores(event));
   bookForm.on('submit', (event) => getBooks(event));
 

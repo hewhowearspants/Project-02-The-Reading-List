@@ -1,24 +1,28 @@
 <% include ../partials/boilerplate %>
 <% include ../partials/nav {user: user} %>
 <div class='container'>
-  <div class='search-container'>
-    <form id='book-request' method='GET'>
-      <input type='text' name='query' placeholder='Title or Author' />
-      <input type='submit' value='Find books!' />
-    </form>
-  </div>
-  <h2>OR</h2>
-  <div class='input-container'>
-    <form method='POST' action='/books'>
-      <input name='title' type='text' placeholder='title' />
-      <input name='author' type='text' placeholder='author' />
-      <input name='year' type='number' placeholder='year' />
-      <input name='genre' type='text' placeholder='genre' />
-      <textarea name='description' type='text' placeholder='description'></textarea>
-      <input type='submit' value='Submit!' />
-    </form>
-    <div class='back'>
-      <a href='/books' id='back-button'>Back to the List</a>
+  <div class='add-container'>
+    <div class='search-container'>
+      <form id='book-request' method='GET'>
+        <input type='text' name='query' placeholder='Title or Author' />
+        <input type='submit' value='Find books!' />
+      </form>
+    </div>
+    <h2>OR</h2>
+    <div class='input-container'>
+      <form method='POST' action='/books'>
+        <input name='title' type='text' placeholder='title' />
+        <input name='author' type='text' placeholder='author' />
+        <div class='year-genre'>
+          <input name='year' type='text' maxlength="4" size="4" placeholder='year' />
+          <input name='genre' type='text' placeholder='genre' />
+        </div>
+        <textarea name='description' type='text' placeholder='description'></textarea>
+        <input type='submit' value='Submit!' />
+      </form>
+      <div class='back'>
+        <a href='/books' id='back-button'>Back to the List</a>
+      </div>
     </div>
   </div>
 </div>

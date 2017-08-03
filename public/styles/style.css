@@ -1,10 +1,13 @@
 body {
-  font-family: 'Playfair Display', serif;
+  /* font-family: 'Playfair Display', serif; */
+  font-family: 'Special Elite', cursive;
   background-image: url('../images/mareks-steins-206836.jpg');
-  background-size: cover no-repeat;
-  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-attachment: fixed;
   background-color: black;
-  color: white;
+  color: #FFF7EF; 
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -26,7 +29,7 @@ h3 {
 }
 
 a {
-  color: white;
+  color: #FFF8F6;
   text-decoration: none;
 }
 
@@ -50,7 +53,7 @@ nav #home {
   margin: 5px;
   text-decoration: none;
   font-size: 28px;
-  color: white;
+  color: #FFF8F6;
   font-weight: 900;
 }
 
@@ -125,12 +128,12 @@ nav button {
 .input-container form [type='text'], .input-container form [type='number'],
 .input-container form [type='password'], .input-container form [type='email'],
 .search-container form [type='text'] {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Special Elite', cursive;
   border-radius: 20px;
   padding: 5px 15px;
   font-size: 20px;
   border: solid 2px rgba(255,255,255,.5);
-  color: white;
+  color: #FFF8F6;
   background-color: transparent;
   outline: none;
   transition: 0.5s;
@@ -139,7 +142,7 @@ nav button {
 .input-container form [type='text']:focus, .input-container form [type='number']:focus,
 .input-container form [type='password']:focus, .input-container form [type='email']:focus,
 .search-container form [type='text']:focus {
-  border: solid 2px white;
+  border: solid 2px #FFF8F6;
 }
 
 .input-container .feedback {
@@ -164,6 +167,21 @@ nav button {
   justify-content: center;
   align-items: center;
   padding: 10px;
+}
+
+.book .book-description {
+  line-height: 18px;
+  text-align: justify;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.book-top #title {
+  text-align: left;
+}
+
+.book-top #author {
+  text-align: right;
 }
 
 .user-feedback .user-rating {
@@ -216,7 +234,6 @@ footer {
   left: 0;
   background-color: rgba(0,0,0,.75);
   min-width: 100vw;
-  /* padding: 10px; */
   color: rgba(255,255,255,1);
 }
 
@@ -232,13 +249,13 @@ footer .footer-search {
   width: 100%
 }
 
-.footer-search form input{
+.footer-search form input[type='text']{
   margin: 10px 0px 10px 10px; 
   padding: 0 7px;
   font-size: 14px;
   background-color: transparent;
   color: white;
-  border-radius: 14px;
+  border-radius: 4px;
   border-top: none;
   border-bottom: none;
 }

@@ -11,16 +11,17 @@
         <% if (book.read === true) { %><p id='read'>Read</p><% } %>
       </div>
       <div class='book-description'>
-        <p><%= book.description %></p>
+        <p>"<%= book.description %>"</p>
       </div>
       <% if (book.read === true) { %>
       <div class='user-feedback'>
+        <p><u>Here's what you thou</u>g<u>ht:</u></p>
         <div class='user-rating'>
         <% for (let i = 0; i < book.user_rating; i++) { %>
           <i class="fa fa-star" aria-hidden="true"></i>
         <% } %>
         </div>
-        <p><%= book.user_notes %></p>
+        <p>"<%= book.user_notes %>"</p>
       </div> 
       <% } %>
       <div class='links'>

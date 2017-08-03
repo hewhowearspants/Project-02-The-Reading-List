@@ -1,4 +1,4 @@
-\c reading_list_dev
+-- \c reading_list_dev
 
 CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,

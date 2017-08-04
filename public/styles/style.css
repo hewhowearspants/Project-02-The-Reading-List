@@ -207,6 +207,20 @@ nav .button-label {
   margin: 20px;
 }
 
+.container #chat-box {
+  font-family: 'PT Mono', monospace;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  max-height: 50vh;
+  min-height: 50vh;
+  width: 50vw;
+  border: solid 2px white;
+  overflow: auto;
+  text-align: left;
+}
+
 .container button {
   margin: 0 5px;
   font-size: 16px;

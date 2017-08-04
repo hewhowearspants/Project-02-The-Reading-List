@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8' />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+  <meta http-equiv='X-UA-Compatible' content='ie=edge' />
+  <title>The Reading List</title>
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/87ea9562e2.css">
+  <link rel='stylesheet' type='text/css' href='/styles/reset.css'>
+  <link rel='stylesheet' type='text/css' href='/styles/style.css'>
+  <script src='/src/jquery.js'></script>
+  <script src='/socket.io/socket.io.js'></script>
+  <script type='text/javascript'>
+    var socket = io();
+    $(function () {
+      $('#chat-form').on('submit', function() {
+        let outgoingMessage = $('#chat-input').val();
+        socket.emit('chat message', `<%= user.username %>: ${outgoingMessage}`);
+        $('#chat-input').val('');
+        return false;
+      });
+      console.log(`<%= user.username %>`);
+      socket.on('chat message', function(text) {
+        let $newMessage = $('<p>').text(text);
+        $('#chat-box').append($newMessage);
+      });
+    });
+  </script>
+</head>
+<body class='<%= currentPage %>'>
+
+<% include ./partials/nav {user: user} %>
+
+<div class='container'>
+  <div class='chat-container'>
+    <div id='chat-box'>
+    </div>
+    <ul id='messages'></ul>
+    <form id='chat-form' action=''>
+      <input id='chat-input' autocomplete='off' /><button>Send</button>
+    </form>
+  </div>
+</div>
+
+<% include ./partials/end %>

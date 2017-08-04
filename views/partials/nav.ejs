@@ -6,6 +6,9 @@
       <p>Hello <%= user.firstname %>!</p>
     </li>
     <li>
+      <a href='/chat'>Go chat!</a>
+    </li>
+    <li>
       <form class='button'>
         <button id='add-button' type='submit' formmethod='GET' formaction='/books/add' <% if (currentPage === 'add') { %>class='highlight-button'<% } %>>
           <i class="fa fa-plus" aria-hidden="true"></i><i class="fa fa-book" aria-hidden="true"></i>

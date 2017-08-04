@@ -1,5 +1,4 @@
 body {
-  /* font-family: 'Playfair Display', serif; */
   font-family: 'Special Elite', cursive;
   background-image: url('../images/mareks-steins-206836.jpg');
   background-size: cover;
@@ -35,6 +34,10 @@ h3 {
 a {
   color: #FFF8F6;
   text-decoration: none;
+}
+
+button {
+  outline: none;
 }
 
 input, textarea {
@@ -204,6 +207,18 @@ nav .button-label {
   margin: 20px;
 }
 
+.container button {
+  margin: 0 5px;
+  font-size: 16px;
+  width: 50px;
+  border-radius: 5px;
+  background-color: darkgrey;
+}
+
+.container #book-submit-button {
+  height: 30px;
+}
+
 .input-container form {
   display: flex;
   flex-direction: column;
@@ -252,13 +267,6 @@ nav .button-label {
 .input-container .feedback {
   width: 400px;
   height: 50vh;
-}
-
-.input-container form input[type='submit'],
-.search-container form input[type='submit'] {
-  font-size: 30px;
-  size: 30px;
-  /* width: auto; */
 }
 
 .store, .book {
@@ -327,13 +335,6 @@ nav .button-label {
   display: flex;
   justify-content: flex-end;
   padding: 5px;
-}
-
-.links button {
-  margin: 0 5px;
-  font-size: 16px;
-  width: 45px;
-  border-radius: 5px;
 }
 
 .back a{

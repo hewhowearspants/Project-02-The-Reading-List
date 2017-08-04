@@ -3,14 +3,16 @@
 <div class='container'>
   <div class='input-container'>
     <form method='POST' action='/books/<%= book.id %>?_method=PUT'>
-      <input name='title' type='text' value='<%= book.title %>' />
+      <input name='title' type='text' value='<%= book.title %>' required />
       <input name='author' type='text' value='<%= book.author %>' />
       <div class='year-genre'>
         <input name='year' type='text' maxlength='4' size='4' value='<%= book.year %>' />
         <input name='genre' type='text' value='<%= book.genre %>' />
       </div>
       <textarea name='description' type='text' value='<%= book.description %>'><%= book.description %></textarea>
-      <input type='submit' value='Edit it!' />
+      <button id='edit-form-button' type='submit'>
+        <i class="fa fa-pencil" aria-hidden="true"></i>
+      </button>
     </form>
     <div class='back'>
       <a href='/books/<%= book.id %>' id='back-button'>Back to the Book</a>

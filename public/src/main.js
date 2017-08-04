@@ -22,26 +22,28 @@ $(() => {
 
   function getBookstores(event) {
     event.preventDefault();
+    if (event.target.zip.value.length === 5) {
+      console.log('zip accepted! ' + event.target.zip.value);
 
-    console.log('zip accepted! ' + event.target.zip.value);
-
-    fetch(`/books/stores/${event.target.zip.value}`)
-      .then((fetchRes) => { 
-        console.log(fetchRes);
-        window.location = `/books/stores/${event.target.zip.value}`;
-      });
+      fetch(`/books/stores/${event.target.zip.value}`)
+        .then((fetchRes) => { 
+          console.log(fetchRes);
+          window.location = `/books/stores/${event.target.zip.value}`;
+        });
+    };
   };
 
   function getBooks(event) {
     event.preventDefault();
+    if (event.target.query.value) {
+      console.log('query accepted! ' + event.target.query.value);
 
-    console.log('query accepted! ' + event.target.query.value);
-
-    fetch(`/books/search/${event.target.query.value}`)
-      .then((fetchRes) => {
-        console.log(fetchRes);
-        window.location = `/books/search/${event.target.query.value}`;
-      });
+      fetch(`/books/search/${event.target.query.value}`)
+        .then((fetchRes) => {
+          console.log(fetchRes);
+          window.location = `/books/search/${event.target.query.value}`;
+        });
+    }
   };
 
 });

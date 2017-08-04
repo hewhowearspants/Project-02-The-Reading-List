@@ -4,21 +4,25 @@
   <div class='add-container'>
     <div class='search-container'>
       <form id='book-request' method='GET'>
-        <input type='text' name='query' placeholder='Title or Author' />
-        <input type='submit' value='Find books!' />
+        <input type='text' name='query' placeholder='Title or Author' required />
+        <button type='submit' class='book-request-button'>
+          <i class="fa fa-search" aria-hidden="true"></i><i class="fa fa-book" aria-hidden="true"></i>
+        </button>
       </form>
     </div>
     <h2>OR</h2>
     <div class='input-container'>
       <form method='POST' action='/books'>
-        <input name='title' type='text' placeholder='title' />
+        <input name='title' type='text' placeholder='title' required />
         <input name='author' type='text' placeholder='author' />
         <div class='year-genre'>
           <input name='year' type='text' maxlength="4" size="4" placeholder='year' />
           <input name='genre' type='text' placeholder='genre' />
         </div>
         <textarea name='description' type='text' placeholder='description'></textarea>
-        <input type='submit' value='Submit!' />
+        <button id='book-submit-button' type='submit'>
+          <i class="fa fa-share" aria-hidden="true"></i><i class="fa fa-book" aria-hidden="true"></i>
+        </button>
       </form>
       <div class='back'>
         <a href='/books' id='back-button'>Back to the List</a>

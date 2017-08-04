@@ -20,7 +20,7 @@
           <% if (user) { %>
           <form class='button'>
             <p class='button-label hidden'>Add to List</p>
-            <button add='add-button' type='submit' formmethod='POST' formaction='/books/search/<%= query %>/<%= book.searchId %>'><i class="fa fa-plus" aria-hidden="true"></i><i class="fa fa-book" aria-hidden="true"></i></button>
+            <button id='add-button' type='submit' formmethod='POST' formaction='/books/search/<%= query %>/<%= book.searchId %>'><i class="fa fa-plus" aria-hidden="true"></i><i class="fa fa-book" aria-hidden="true"></i></button>
           </form>
           <% } %>
         </div>

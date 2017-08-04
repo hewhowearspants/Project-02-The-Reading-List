@@ -2,14 +2,14 @@
   <% if (currentPage !== 'home') { %>
   <div class='footer-search'>
     <form id='bookstore-request' method='GET'>
-      <input type='text' name='zip' maxlength=5 size=5 placeholder='ZIP' />
-      <button type='submit' id='bookstore-request-button'>
+      <input type='text' name='zip' maxlength=5 size=5 placeholder='ZIP' required />
+      <button type='submit' class='bookstore-request-button'>
         <i class="fa fa-search" aria-hidden="true"></i>
       </button>
     </form>
     <form id='book-request' method='GET'>
-      <input type='text' name='query' placeholder='Title or Author' />
-      <button type='submit' id='book-request-button'>
+      <input type='text' name='query' placeholder='Title or Author' required />
+      <button type='submit' class='book-request-button'>
         <i class="fa fa-search" aria-hidden="true"></i>
       </button>
     </form>

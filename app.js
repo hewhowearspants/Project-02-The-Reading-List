@@ -36,10 +36,10 @@ app.listen(port, () => {
 
 app.get('/', (req, res) => {
     res.render('index', {
-        message: 'The Reading List!',
+        message: '“We need to make books cool again. If you go home with somebody and they don\'t have books, don\'t fuck them.”',
         currentPage: 'home',
         documentTitle: 'The Reading List',
-        subTitle: '“We need to make books cool again. If you go home with somebody and they don\'t have books, don\'t fuck them.” - John Waters',
+        subTitle: '- John Waters',
         user: req.user,
     });
 });

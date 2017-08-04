@@ -3,8 +3,8 @@
 
 <div class='splash-container'>
   <div class='message-box'>
-    <h1 id='splash-message'><%= message %></h1>
-    <h3 id='splash-quote'><%= subTitle %></h3>
+    <h3 id='splash-quote'><%= message %></h3>
+    <p id='splash-quote-author'><%= subTitle %></p>
   </div>
   <div class='search-container'>
     <form id='bookstore-request' method='GET'>
@@ -12,14 +12,12 @@
       <button type='submit' id='bookstore-request-button'>
         <i class="fa fa-search" aria-hidden="true"></i>
       </button>
-      <!-- <input type='submit' value='Find bookstores!' /> -->
     </form>
     <form id='book-request' method='GET'>
       <input type='text' name='query' placeholder='Title or Author' />
       <button type='submit' id='book-request-button'>
         <i class="fa fa-search" aria-hidden="true"></i>
       </button>
-      <!-- <input type='submit' value='Find books!' /> -->
     </form>
   </div>
 </div>

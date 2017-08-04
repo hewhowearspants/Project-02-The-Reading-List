@@ -120,6 +120,12 @@ nav .button-label {
   width: 80vw;
 }
 
+.splash-container #splash-quote-author {
+  padding: 10px;
+  text-align: right;
+  margin: 0 50px;
+}
+
 .splash-container .search-container{
   display: flex;
   flex-direction: column;

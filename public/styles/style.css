@@ -472,7 +472,8 @@ label.star:before {
     margin: 0 auto;
   }
 
-  .container .read-book-container, .container .unread-book-container {
+  .container .read-book-container, .container .unread-book-container,
+  .container .search-results-container {
     display: flex;  
     flex-direction: column; 
     width: 90%;

@@ -2,7 +2,7 @@
 <% include ../partials/nav {user: user} %>
 
   <div class='container'>
-     <div class='book'> 
+    <div class='book'> 
       <div class='book-top'>
         <h3><%= book.title %></h3>
         <p><%= book.author %></p>
@@ -12,17 +12,21 @@
       <div class='book-description'>
         <p><%= book.description %></p>
       </div>
-      <div class='links'>
-        <% if (user) { %>
-        <form>
-          <button class='add-button' type='submit' formmethod='POST' formaction='/books/search/<%= query %>/<%= book.searchId %>'><i class="fa fa-plus" aria-hidden="true"></i><i class="fa fa-book" aria-hidden="true"></i></button>
-        </form>
-        <% } %>
+      <div class='book-bottom'>
+        <div class='back'>
+          <a href='/books/search/<%= query %>' id='back-button'>Back to Results</a> 
+        </div>
+        <div class='links'>
+          <% if (user) { %>
+          <form class='button'>
+            <p class='button-label hidden'>Add to List</p>
+            <button add='add-button' type='submit' formmethod='POST' formaction='/books/search/<%= query %>/<%= book.searchId %>'><i class="fa fa-plus" aria-hidden="true"></i><i class="fa fa-book" aria-hidden="true"></i></button>
+          </form>
+          <% } %>
+        </div>
       </div>
     </div>
-    <div class='back'>
-      <a href='/books/search/<%= query %>' id='back-button'>Back to Results</a>
-    </div>
+    
   </div>
 
 <% include ../partials/end %>

@@ -79,6 +79,14 @@ nav #home {
 
 }
 
+nav .not-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+}
+
 nav ul #user-greeting {
   margin-bottom: 10px;
 }
@@ -209,16 +217,20 @@ nav .button-label {
 
 .container #chat-box {
   font-family: 'PT Mono', monospace;
-  display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
-  max-height: 50vh;
-  min-height: 50vh;
-  width: 50vw;
+  max-height: 70vh;
+  min-height: 70vh;
+  width: 60vw;
   border: solid 2px white;
-  overflow: auto;
+  overflow-y: auto;
   text-align: left;
+  vertical-align: bottom;
+}
+
+.container #chat-box p {
+  bottom: 0;
 }
 
 .container button {
@@ -495,6 +507,7 @@ label.star:before {
   .container {
     flex-direction: row;
     justify-content: center;
+    
   }
 
   .splash-container {
@@ -516,7 +529,7 @@ label.star:before {
 
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
   h1 {
     font-size: 20px;
   }
@@ -532,17 +545,37 @@ label.star:before {
   p {
     font-size: 12px;
   }
-  
-  nav #home {
-    font-size: 18px;
+
+  nav {
+    flex-direction: column;
   }
 
   nav ul {
-  padding-right: 3px;
+    padding-right: 0;
+  }
+
+  nav .not-nav {
+    width: 100vw;
+    padding: 0px 15px;
+  }
+
+  .not-nav #home {
+    margin-bottom: 0px;
+    font-size: 18px;
+  }
+
+  .not-nav #user-greeting {
+    padding: 12px 15px 0px;
+    font-size: 16px;
   }
 
   .splash-container #splash-quote {
     line-height: 18px;
+  }
+
+  .container {
+    margin: 85px auto 70px;
+    padding: 0 0 0;
   }
 
   .input-container form [type='text'], .input-container form [type='number'],

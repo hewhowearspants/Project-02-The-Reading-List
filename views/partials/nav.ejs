@@ -1,12 +1,17 @@
-<nav class = 'nav'>
-  <a href='/' id='home'>The Reading List</a>
-  <ul>
+<nav>
+  <div class='not-nav'>
+    <a href='/' id='home'>The Reading List</a>
+    <% if (user) { %><p id='user-greeting'>Hello <%= user.firstname %>!</p><% } %>
+  </div>
+  <ul class='nav'>
     <% if (user) { %>
-    <li id='user-greeting'>
-      <p>Hello <%= user.firstname %>!</p>
-    </li>
     <li>
-      <a href='/chat'>Go chat!</a>
+      <form class='button'>
+        <button id='chat-button' type='submit' formmethod='GET' formaction='/chat' <% if (currentPage === 'chat') { %>class='highlight-button'<% } %>>
+          <i class="fa fa-comments-o" aria-hidden="true"></i>
+        </button>
+        <p class='button-label hidden'>Go chat!</p>
+      </form>
     </li>
     <li>
       <form class='button'>
@@ -22,6 +27,14 @@
           <i class="fa fa-list-ul" aria-hidden="true"></i>
         </button>
         <p class='button-label hidden'>Your List</p>
+      </form>
+    </li>
+    <li>
+      <form class='button'>
+        <button id='profile-button' type='submit' formmethod='GET' formaction='/user' <% if (currentPage === 'user') { %>class='highlight-button'<% } %>>
+          <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+        </button>
+        <p class='button-label hidden'>Profile</p>
       </form>
     </li>
     <li>
@@ -48,6 +61,5 @@
       </form>
     </li>
     <% } %>
-
   </ul>
 </nav>

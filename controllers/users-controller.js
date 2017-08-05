@@ -15,7 +15,7 @@ usersController.create = (req, res) => {
   }).then((user) => {
     req.login(user, (err) => {
       if(err) {
-      return next(err);
+        return next(err);
       };
       res.redirect('/books');
     });
@@ -26,7 +26,19 @@ usersController.create = (req, res) => {
 };
 
 usersController.index = (req, res) => {
-  res.redirect('/books');
+  User.findByUserName(req.user.username)
+    .then((user) => {
+      console.log(user);
+      console.log(req);
+      res.render('user/user-profile', {
+        currentPage: 'profile',
+        message: 'ok',
+        user: user,
+      });
+    }).catch((err) => {
+      console.log(err);
+      res.status(500).json({error: err});
+    });
 };
 
 module.exports = usersController;

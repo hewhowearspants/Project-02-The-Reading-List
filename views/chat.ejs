@@ -73,7 +73,7 @@
           for (let socketId in users) {
             if (users[socketId] !== `<%= user.username %>`) {
               console.log(`adding ${users[socketId]} to userlist!`)
-              userList += ` ${users[socketId]}`;
+              userList += ` -${users[socketId]}`;
             };
           };
           

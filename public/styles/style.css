@@ -295,7 +295,7 @@ nav .button-label {
 }
 
 #chat-form button {
-  /* border: none; */
+  border: none; 
   border-radius: 0 0 5px 0;
   flex-grow: 1;
   margin: 0;

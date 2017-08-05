@@ -735,4 +735,8 @@ label.star:before {
   footer .credits {
     padding: 5px;
   }
+
+  footer .footer-search {
+    display: none;
+  }
 }

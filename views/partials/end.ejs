@@ -1,6 +1,5 @@
 <footer>
-  <% console.log('THE CURRENT PAGE IS ' + currentPage) %>
-  <% if (currentPage !== 'home' && currentPage !== 'chat') { %>
+  <% if (currentPage !== 'home') { %>
   <div class='footer-search'>
     <form id='bookstore-request' method='GET'>
       <input type='text' name='zip' maxlength=5 size=5 placeholder='ZIP' required />

@@ -255,7 +255,7 @@ nav .button-label {
   line-height: 20px;
 }
 
- .container .chat-container {
+.container .chat-container {
   font-family: 'PT Mono', monospace;
   flex-direction: column;
   justify-content: flex-end;
@@ -268,7 +268,7 @@ nav .button-label {
 
 .chat-container #chat-box {
   height: 100%;
-  display: flex;
+  display: flex; 
   flex-direction: column;
   background-color: rgba(0,0,0,.5);
   border-top: solid 2px lightgray;
@@ -277,7 +277,7 @@ nav .button-label {
   border-bottom: none;
   overflow-y: auto;
   max-height: 70vh;
-  /* min-height: 70vh; */
+  min-height: 65vh; 
   border-radius: 5px 5px 0 0;
   padding: 5px 10px;
 }
@@ -295,7 +295,7 @@ nav .button-label {
 }
 
 #chat-form button {
-  border: none;
+  /* border: none; */
   border-radius: 0 0 5px 0;
   flex-grow: 1;
   margin: 0;
@@ -306,10 +306,11 @@ nav .button-label {
 }
 
 #chat-box #chat-content {
-  flex: 1 1 90%;
-  display: flex;
+  flex: 1 1 90%;  
+  display: flex; 
   flex-direction: column-reverse;
   overflow: auto;
+  /* min-height: 100%;  */
 }
 
 #chat-content p {
@@ -325,9 +326,13 @@ nav .button-label {
   font-size: 0.8em;
 }
 
-#chat-content .chat-message {
-  display: flex;
-  flex-direction: row;
+#chat-content .chat-message p {
+  display: inline-block;
+}
+
+.chat-message p:nth-child(1) {
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .chat-message p:nth-child(2) {
@@ -703,8 +708,8 @@ label.star:before {
     margin: 0;
   }
 
-  #chat-box .chat-message {
-    flex-direction: column;
+  #chat-box .chat-message p {
+    display: block;
   }
 
   #chat-content #user-list-notification {
@@ -713,8 +718,7 @@ label.star:before {
 
   .chat-message p:nth-child(2) {
     padding-left: 5px;
-    display: flex;
-    justify-content: flex-end;
+    text-align: right;
   }
 
   .user-container .back,

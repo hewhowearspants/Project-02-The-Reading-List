@@ -57,7 +57,6 @@
         $userList.addClass('notification');
         $userList.attr('id', 'user-list-notification');
         $userList.css('color', 'gold');
-        // $userList.css('font-size', '.8em');
 
         $('#chat-content').prepend($newMessage);
         $('#chat-content').prepend($userList);
@@ -72,7 +71,7 @@
           
           for (let socketId in users) {
             if (users[socketId] !== `<%= user.username %>`) {
-              console.log(`adding ${users[socketId]} to userlist!`)
+              // console.log(`adding ${users[socketId]} to userlist!`)
               userList += ` -${users[socketId]}`;
             };
           };
@@ -86,7 +85,6 @@
         $userList.addClass('notification');
         $userList.attr('id', 'user-list-notification');
         $userList.css('color', 'gold');
-        // $userList.css('font-size', '.8em');
 
         $('#chat-content').prepend($userList);
       });
@@ -119,7 +117,6 @@
       <div id='chat-content'>
       </div>
     </div>
-    <ul id='messages'></ul>
     <form id='chat-form' action=''>
       <input id='chat-input' autocomplete='off' /><button>Send</button>
     </form>

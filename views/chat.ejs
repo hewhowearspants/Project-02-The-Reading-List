@@ -46,6 +46,11 @@
         let $newMessage = $('<p>').text(text);
         $('#chat-content').prepend($newMessage);
       });
+
+      socket.on('user left', function(text) {
+        let $newMessage = $('<p>').text(text);
+        $('#chat-content').prepend($newMessage);
+      });
     });
   </script>
 </head>

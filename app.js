@@ -45,12 +45,13 @@ io.on('connection', function(socket) {
 
   socket.on('chat message', function(message) {
     console.log('message: ' + message);
-    socket.emit('chat message', message);
-    socket.broadcast.emit('chat message', message);
+    socket.emit('chat message', users[socket.id] + ': ' + message);
+    socket.broadcast.emit('chat message', users[socket.id] + ': ' + message);
   });
 
   socket.on('disconnect', function() {
     console.log(socket.id + ' (AKA ' + users[socket.id] +') disconnected');
+    socket.broadcast.emit('user left', users[socket.id] + ' has left!')
     delete users[socket.id];
     console.log(users);
   });

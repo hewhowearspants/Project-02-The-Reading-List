@@ -255,22 +255,53 @@ nav .button-label {
   line-height: 20px;
 }
 
-.container #chat-box {
+ .container .chat-container {
   font-family: 'PT Mono', monospace;
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
-  max-height: 70vh;
-  min-height: 70vh;
-  width: 60vw;
-  border: solid 2px white;
-  overflow-y: auto;
+  width: 70vw;
+  height: 70vh;
   text-align: left;
   vertical-align: bottom;
+} 
+
+.chat-container #chat-box {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: solid 2px grey;
+  overflow-y: auto;
+  max-height: 70vh;
+  min-height: 70vh;
+  border-radius: 5px 5px 0 0;
+  padding: 5px 10px;
 }
 
-.container #chat-box p {
-  bottom: 0;
+.chat-container #chat-form {
+  display: flex;
+}
+
+#chat-form #chat-input {
+  flex-grow: 5;
+  border-radius: 0 0 0 5px;
+  border: none;
+  padding: 0px 10px;
+}
+
+#chat-form button {
+  border: none;
+  border-radius: 0 0 5px 0;
+  flex-grow: 1;
+  margin: 0;
+  background-color: grey;
+}
+
+#chat-box #chat-content {
+  flex: 1 1 90%;
+  display: flex;
+  flex-direction: column-reverse;
+  overflow: auto;
 }
 
 .container button {

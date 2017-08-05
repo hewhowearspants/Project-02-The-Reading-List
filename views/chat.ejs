@@ -26,7 +26,7 @@
       console.log(`<%= user.username %>`);
       socket.on('chat message', function(text) {
         let $newMessage = $('<p>').text(text);
-        $('#chat-box').append($newMessage);
+        $('#chat-content').prepend($newMessage);
       });
     });
   </script>
@@ -38,6 +38,8 @@
 <div class='container'>
   <div class='chat-container'>
     <div id='chat-box'>
+      <div id='chat-content'>
+      </div>
     </div>
     <ul id='messages'></ul>
     <form id='chat-form' action=''>

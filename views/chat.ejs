@@ -20,11 +20,6 @@
 
     $(function () {
 
-      // socket.on('connect', function() {
-      //   console.log('connected');
-      //   socket.emit('hello', username);
-      // });
-
       $('#chat-form').on('submit', function() {
         let text = $('#chat-input').val();
         socket.emit('chat message', text);
@@ -43,23 +38,72 @@
         $('#chat-content').prepend($newMessage);
       });
 
-      socket.on('welcome', function(text) {
-        let $newMessage = $('<p>').text(text);
-        $newMessage.addClass('chat-welcome-notification');
+      socket.on('welcome', function(data) {
+        let $newMessage = $('<p>').text(data.greeting);
+        $newMessage.addClass('notification');
+        $newMessage.attr('id', 'chat-welcome-notification');
         $newMessage.css('color', 'gold');
+
+        let $userList = $('<p>');
+        if (jQuery.isEmptyObject(data.users)) {
+          $userList.text('You\'re all alone and that\'s sad :(');
+        } else {
+          let userList = '';
+          for (let socketId in data.users) {
+            userList += ` -${data.users[socketId]}`;
+          };
+          $userList.text(`You're with${userList}`);
+        };
+        $userList.addClass('notification');
+        $userList.attr('id', 'user-list-notification');
+        $userList.css('color', 'gold');
+        // $userList.css('font-size', '.8em');
+
         $('#chat-content').prepend($newMessage);
+        $('#chat-content').prepend($userList);
+      });
+
+      socket.on('list users', function(users) {
+        let $userList = $('<p>');
+        if (jQuery.isEmptyObject(users)) {
+          $userList.text('You\'re all alone and that\'s sad :(');
+        } else {
+          let userList = '';
+          
+          for (let socketId in users) {
+            if (users[socketId] !== `<%= user.username %>`) {
+              console.log(`adding ${users[socketId]} to userlist!`)
+              userList += ` ${users[socketId]}`;
+            };
+          };
+          
+          if (!userList) {
+            $userList.text('You\'re all alone and that\'s sad :(');
+          } else {
+            $userList.text(`You're with${userList}`);
+          };
+        };
+        $userList.addClass('notification');
+        $userList.attr('id', 'user-list-notification');
+        $userList.css('color', 'gold');
+        // $userList.css('font-size', '.8em');
+
+        $('#chat-content').prepend($userList);
       });
 
       socket.on('new user', function(text) {
         let $newMessage = $('<p>').text(text);
-        $newMessage.addClass('chat-connect-notification');
+        $newMessage.addClass('notification');
+        $newMessage.attr('id', 'chat-connect-notification');
         $newMessage.css('color', 'lightgreen');
         $('#chat-content').prepend($newMessage);
       });
 
       socket.on('user left', function(text) {
         let $newMessage = $('<p>').text(text);
-        $newMessage.addClass('chat-disconnect-notification');
+        $newMessage.addClass('notification');
+        $newMessage.attr('id', 'chat-disconnect-notification');
+        $newMessage.css('color', 'lightcoral');
         $('#chat-content').prepend($newMessage);
       });
     });

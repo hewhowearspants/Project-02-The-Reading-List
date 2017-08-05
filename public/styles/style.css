@@ -316,6 +316,15 @@ nav .button-label {
   line-height: 16px;
 }
 
+#chat-content .notification {
+  font-style: italic;
+  padding: 5px 0;
+}
+
+#chat-content #user-list-notification {
+  font-size: 0.8em;
+}
+
 #chat-content .chat-message {
   display: flex;
   flex-direction: row;
@@ -696,6 +705,10 @@ label.star:before {
 
   #chat-box .chat-message {
     flex-direction: column;
+  }
+
+  #chat-content #user-list-notification {
+    font-size: 0.7em;
   }
 
   .chat-message p:nth-child(2) {

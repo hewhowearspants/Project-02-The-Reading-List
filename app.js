@@ -35,18 +35,21 @@ let users = {};
 
 io.on('connection', function(socket) {
   let username = socket.handshake.query.username;
-  let users = {};
+  socket.emit('welcome', {users: users, greeting: `hello ${username}!`});
+  socket.broadcast.emit('new user', `${username} has joined`);
+
   users[socket.id] = username;
   console.log(users);
   console.log('new connection from ' + socket.id + ', also known as ' + users[socket.id]);
 
-  socket.emit('welcome', 'hello ' + users[socket.id] + '!');
-  socket.broadcast.emit('new user', users[socket.id] + ' has joined');
-
   socket.on('chat message', function(message) {
-    console.log('message: ' + message);
-    socket.emit('chat message', {username: users[socket.id], message: message});
-    socket.broadcast.emit('chat message', {username: users[socket.id], message: message});
+    // console.log('message: ' + message);
+    if (message === '>userlist') {
+      socket.emit('list users', users);
+    } else {
+      socket.emit('chat message', {username: users[socket.id], message: message});
+      socket.broadcast.emit('chat message', {username: users[socket.id], message: message});
+    };
   });
 
   socket.on('disconnect', function() {

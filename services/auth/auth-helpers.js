@@ -14,10 +14,13 @@ function loginRedirect(req, res, next) {
 
 function loginRequired(req, res, next) {
   if (!req.user) {
+    req.session.returnTo = req.originalUrl;
     return res.redirect('/auth/login');
   }
   return next();
 };
+
+//
 
 module.exports = {
   comparePass,

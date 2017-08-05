@@ -7,7 +7,7 @@
     <% if (user) { %>
     <li>
       <form class='button'>
-        <button id='chat-button' type='submit' formmethod='GET' formaction='/chat' <% if (currentPage === 'chat') { %>class='highlight-button'<% } %>>
+        <button id='chat-button' type='submit' formmethod='GET' formaction='/chat' <% if (currentPage === 'chat') { %>class='highlight-button' disabled<% } %>>
           <i class="fa fa-comments-o" aria-hidden="true"></i>
         </button>
         <p class='button-label hidden'>Go chat!</p>
@@ -15,7 +15,7 @@
     </li>
     <li>
       <form class='button'>
-        <button id='add-button' type='submit' formmethod='GET' formaction='/books/add' <% if (currentPage === 'add') { %>class='highlight-button'<% } %>>
+        <button id='add-button' type='submit' formmethod='GET' formaction='/books/add' <% if (currentPage === 'add') { %>class='highlight-button' disabled<% } %>>
           <i class="fa fa-plus" aria-hidden="true"></i><i class="fa fa-book" aria-hidden="true"></i>
         </button>
         <p class='button-label hidden'>Add book</p>
@@ -23,7 +23,7 @@
     </li>
     <li>
       <form class='button'>
-        <button id='list-button' type='submit' formmethod='GET' formaction='/books' <% if (currentPage === 'index') { %>class='highlight-button'<% } %>>
+        <button id='list-button' type='submit' formmethod='GET' formaction='/books' <% if (currentPage === 'index') { %>class='highlight-button' disabled<% } %>>
           <i class="fa fa-list-ul" aria-hidden="true"></i>
         </button>
         <p class='button-label hidden'>Your List</p>
@@ -31,7 +31,7 @@
     </li>
     <li>
       <form class='button'>
-        <button id='profile-button' type='submit' formmethod='GET' formaction='/user' <% if (currentPage === 'user') { %>class='highlight-button'<% } %>>
+        <button id='profile-button' type='submit' formmethod='GET' formaction='/user' <% if (currentPage === 'user') { %>class='highlight-button' disabled<% } %>>
           <i class="fa fa-user-circle-o" aria-hidden="true"></i>
         </button>
         <p class='button-label hidden'>Profile</p>
@@ -46,7 +46,7 @@
     <% } else { %>
     <li>
       <form class='button'>
-        <button id='login-button' type='submit' formmethod='GET' formaction='/auth/login' <% if (currentPage === 'login') { %>class='highlight-button'<% } %>>
+        <button id='login-button' type='submit' formmethod='GET' formaction='/auth/login' <% if (currentPage === 'login') { %>class='highlight-button' disabled<% } %>>
           <i class="fa fa-sign-in" aria-hidden="true"></i>
         </button>
         <p class='button-label hidden'>Login</p>
@@ -54,7 +54,7 @@
     </li>
     <li>
       <form class='button'>
-        <button id='register-button hidden' type='submit' formmethod='GET' formaction='/auth/register' <% if (currentPage === 'register') { %>class='highlight-button'<% } %>>
+        <button id='register-button hidden' type='submit' formmethod='GET' formaction='/auth/register' <% if (currentPage === 'register') { %>class='highlight-button' disabled<% } %>>
           <i class="fa fa-user-plus" aria-hidden="true"></i>
         </button>
         <p class='button-label hidden'>Register</p>

@@ -20,12 +20,13 @@ authRouter.get('/register', authHelpers.loginRedirect, (req,res) => {
 
 authRouter.post('/register', usersController.create);
 
-authRouter.post('/login', passport.authenticate('local', {
-    successRedirect: '/books',
+authRouter.post('/login', function (req, res, next) {  
+  passport.authenticate('local', {
+    successRedirect: req.session.returnTo || '/books',
     failureRedirect: '/auth/login',
     failureFlash: true,
-  })
-);
+  })(req, res, next) 
+});
 
 authRouter.get('/logout', (req, res) => {
   req.logout();

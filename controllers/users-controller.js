@@ -31,7 +31,7 @@ usersController.index = (req, res) => {
       console.log(user);
       console.log(req);
       res.render('user/user-profile', {
-        currentPage: 'profile',
+        currentPage: 'user',
         message: 'ok',
         user: user,
       });

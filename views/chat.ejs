@@ -33,22 +33,33 @@
       });
 
       socket.on('chat message', function(text) {
-        let $newMessage = $('<p>').text(text);
+        let $user = $('<p>').text(text.username + ': ');
+        let $text = $('<p>').text(text.message);
+        let $newMessage = $('<div>').append($user).append($text);
+        $newMessage.addClass('chat-message');
+        if (text.username === `<%= user.username %>` ) {
+          $newMessage.css('color', 'lightskyblue');
+        };
         $('#chat-content').prepend($newMessage);
       });
 
       socket.on('welcome', function(text) {
         let $newMessage = $('<p>').text(text);
+        $newMessage.addClass('chat-welcome-notification');
+        $newMessage.css('color', 'gold');
         $('#chat-content').prepend($newMessage);
       });
 
       socket.on('new user', function(text) {
         let $newMessage = $('<p>').text(text);
+        $newMessage.addClass('chat-connect-notification');
+        $newMessage.css('color', 'lightgreen');
         $('#chat-content').prepend($newMessage);
       });
 
       socket.on('user left', function(text) {
         let $newMessage = $('<p>').text(text);
+        $newMessage.addClass('chat-disconnect-notification');
         $('#chat-content').prepend($newMessage);
       });
     });

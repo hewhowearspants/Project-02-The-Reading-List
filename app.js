@@ -45,8 +45,8 @@ io.on('connection', function(socket) {
 
   socket.on('chat message', function(message) {
     console.log('message: ' + message);
-    socket.emit('chat message', users[socket.id] + ': ' + message);
-    socket.broadcast.emit('chat message', users[socket.id] + ': ' + message);
+    socket.emit('chat message', {username: users[socket.id], message: message});
+    socket.broadcast.emit('chat message', {username: users[socket.id], message: message});
   });
 
   socket.on('disconnect', function() {

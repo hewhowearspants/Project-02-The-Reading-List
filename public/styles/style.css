@@ -261,7 +261,7 @@ nav .button-label {
   justify-content: flex-end;
   align-items: flex-start;
   width: 70vw;
-  height: 70vh;
+  height: 65vh;
   text-align: left;
   vertical-align: bottom;
 } 
@@ -271,10 +271,13 @@ nav .button-label {
   display: flex;
   flex-direction: column;
   background-color: rgba(0,0,0,.5);
-  border: solid 2px grey;
+  border-top: solid 2px lightgray;
+  border-left: solid 2px lightgray;
+  border-right: solid 2px lightgray;
+  border-bottom: none;
   overflow-y: auto;
   max-height: 70vh;
-  min-height: 70vh;
+  /* min-height: 70vh; */
   border-radius: 5px 5px 0 0;
   padding: 5px 10px;
 }
@@ -285,9 +288,10 @@ nav .button-label {
 
 #chat-form #chat-input {
   flex-grow: 5;
-  border-radius: 0 0 0 5px;
+  border-radius: 0 5px 0 5px;
   border: none;
   padding: 0px 10px;
+  background-color: lightgray;
 }
 
 #chat-form button {
@@ -295,7 +299,10 @@ nav .button-label {
   border-radius: 0 0 5px 0;
   flex-grow: 1;
   margin: 0;
-  background-color: grey;
+  background-color: rgba(0,0,0,.5);
+  color: lightgray;
+  border-bottom: solid 2px lightgray;
+  border-right: solid 2px lightgray;
 }
 
 #chat-box #chat-content {
@@ -303,6 +310,19 @@ nav .button-label {
   display: flex;
   flex-direction: column-reverse;
   overflow: auto;
+}
+
+#chat-content p {
+  line-height: 16px;
+}
+
+#chat-content .chat-message {
+  display: flex;
+  flex-direction: row;
+}
+
+.chat-message p:nth-child(2) {
+  padding-left: 3px;
 }
 
 .container button {
@@ -672,6 +692,16 @@ label.star:before {
   .container .user-container {
     width: 100%;
     margin: 0;
+  }
+
+  #chat-box .chat-message {
+    flex-direction: column;
+  }
+
+  .chat-message p:nth-child(2) {
+    padding-left: 5px;
+    display: flex;
+    justify-content: flex-end;
   }
 
   .user-container .back,

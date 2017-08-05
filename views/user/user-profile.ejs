@@ -2,7 +2,30 @@
 <% include ../partials/nav {user: user} %>
 
 <div class='container'>
-  <p>User profile info goes here</p>
+  <div class='user-container'>
+    <div id='user-info'>
+      <div id='user-labels'>
+        <ul>
+          <li><p>Username:</p></li>
+          <li><p>Email:</p></li>
+          <li><p>First Name:</p></li>
+          <li><p>Last Name:</p></li>
+        </ul>
+      </div>
+      <div id='user-values'>
+        <ul>
+          <li><p><%= user.username %></p></li>
+          <li><p><%= user.email %></p></li>
+          <li><p><%= user.firstname %></p></li>
+          <li><p><%= user.lastname %></p></li>
+        </ul>
+      </div>
+    </div>
+    <div class='back'>
+      <a href='/user/edit'>Update Profile</a>
+      <a href='/user/change-password'>Change Password</a>
+    </div>
+  </div>
 </div>
 
 

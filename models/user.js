@@ -19,4 +19,16 @@ User.create = (user) => {
   `, [user.username, user.email, user.password_digest, user.firstname, user.lastname]);
 };
 
+User.update = (user) => {
+  return db.one(`
+  UPDATE users SET
+  username = $1,
+  email = $2,
+  firstname = $3,
+  lastname = $4
+  WHERE id = $5
+  RETURNING *
+  `, [user.username, user.email, user.firstname, user.lastname, user.id]);
+};
+
 module.exports = User;

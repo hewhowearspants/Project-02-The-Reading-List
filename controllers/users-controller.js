@@ -28,8 +28,6 @@ usersController.create = (req, res) => {
 usersController.index = (req, res) => {
   User.findByUserName(req.user.username)
     .then((user) => {
-      console.log(user);
-      console.log(req);
       res.render('user/user-profile', {
         currentPage: 'user',
         message: 'ok',
@@ -39,6 +37,35 @@ usersController.index = (req, res) => {
       console.log(err);
       res.status(500).json({error: err});
     });
+};
+
+usersController.edit = (req, res) => {
+  User.findByUserName(req.user.username)
+    .then((user) => {
+      res.render('user/user-profile-edit', {
+        currentPage: 'user edit',
+        message: 'ok',
+        user: user,
+      });
+    }).catch((err) => {
+      console.log(err);
+      res.status(500).json({error: err});
+    });
+};
+
+usersController.update = (req, res) => {
+  User.update({
+    username: req.body.username,
+    email: req.body.email,
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    id: req.user.id,
+  }).then((user) => {
+    res.redirect('/user');
+  }).catch((err) => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 };
 
 module.exports = usersController;

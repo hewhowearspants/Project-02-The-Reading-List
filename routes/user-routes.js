@@ -4,5 +4,8 @@ const usersController = require('../controllers/users-controller');
 const authHelpers = require('../services/auth/auth-helpers');
 
 userRoutes.get('/', authHelpers.loginRequired, usersController.index);
+userRoutes.get('/edit', authHelpers.loginRequired, usersController.edit);
+
+userRoutes.put('/', authHelpers.loginRequired, usersController.update);
 
 module.exports = userRoutes;

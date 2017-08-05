@@ -15,16 +15,34 @@
   <script src='/src/jquery.js'></script>
   <script src='/socket.io/socket.io.js'></script>
   <script type='text/javascript'>
-    var socket = io();
+    var username = `<%= user.username %>`;
+    var socket = io({query: {username: username}});
+
     $(function () {
+
+      // socket.on('connect', function() {
+      //   console.log('connected');
+      //   socket.emit('hello', username);
+      // });
+
       $('#chat-form').on('submit', function() {
-        let outgoingMessage = $('#chat-input').val();
-        socket.emit('chat message', `<%= user.username %>: ${outgoingMessage}`);
+        let text = $('#chat-input').val();
+        socket.emit('chat message', text);
         $('#chat-input').val('');
         return false;
       });
-      console.log(`<%= user.username %>`);
+
       socket.on('chat message', function(text) {
+        let $newMessage = $('<p>').text(text);
+        $('#chat-content').prepend($newMessage);
+      });
+
+      socket.on('welcome', function(text) {
+        let $newMessage = $('<p>').text(text);
+        $('#chat-content').prepend($newMessage);
+      });
+
+      socket.on('new user', function(text) {
         let $newMessage = $('<p>').text(text);
         $('#chat-content').prepend($newMessage);
       });

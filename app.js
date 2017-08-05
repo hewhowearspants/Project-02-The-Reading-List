@@ -31,8 +31,17 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+let users = {};
+
 io.on('connection', function(socket) {
-  console.log('new connection from ' + socket.id);
+  let username = socket.handshake.query.username;
+  let users = {};
+  users[socket.id] = username;
+  console.log(users);
+  console.log('new connection from ' + socket.id + ', also known as ' + users[socket.id]);
+
+  socket.emit('welcome', 'hello ' + users[socket.id] + '!');
+  socket.broadcast.emit('new user', users[socket.id] + ' has joined');
 
   socket.on('chat message', function(message) {
     console.log('message: ' + message);
@@ -41,8 +50,9 @@ io.on('connection', function(socket) {
   });
 
   socket.on('disconnect', function() {
-    console.log(socket.id + ' disconnected');
-
+    console.log(socket.id + ' (AKA ' + users[socket.id] +') disconnected');
+    delete users[socket.id];
+    console.log(users);
   });
 });
 

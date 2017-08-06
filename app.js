@@ -6,6 +6,7 @@ const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
+const favicon = require('serve-favicon');
 
 const app = express();
 const server = require('http').createServer(app);
@@ -27,6 +28,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(express.static(__dirname + '/public'));
+app.use(favicon(__dirname + '/public/favicon.ico'));
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

@@ -1,3 +1,5 @@
+// PSQL database queries for 'users' table
+
 const db = require('../db/config');
 
 const User = {};
@@ -29,6 +31,15 @@ User.update = (user) => {
   WHERE id = $5
   RETURNING *
   `, [user.username, user.email, user.firstname, user.lastname, user.id]);
+};
+
+User.changePassword = (user) => {
+  return db.one(`
+  UPDATE users SET
+  password_digest = $1
+  WHERE id = $2
+  RETURNING *
+  `, [user.password_digest, user.id]);
 };
 
 module.exports = User;

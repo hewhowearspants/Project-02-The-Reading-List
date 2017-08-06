@@ -2,7 +2,7 @@
 <% include ../partials/nav {user: user} %>
 
 <div class='container'>
-  <div class='input-container'>
+  <div class='input-container' id='update-profile-container'>
     <form method='POST' action='/user?_method=PUT'>
       <input name='username' type='text' value='<%= user.username %>' required />
       <input name='email' type='email' value='<%= user.email %>' />
@@ -12,9 +12,15 @@
         <i class="fa fa-share" aria-hidden="true"></i><i class="fa fa-user-circle" aria-hidden="true"></i>
       </button>
     </form>
+    <form method='POST' action='/user/change-password?_method=PUT'>
+      <input id='change-password-input' name='password' type='password' placeholder='change password' />
+      <input id='confirm-password-input' name='password-confirm' type='password' placeholder='confirm password' />
+      <button id='change-password-button' type='submit' disabled>
+        <i class="fa fa-ban" aria-hidden="true"></i> <i class="fa fa-lock" aria-hidden="true"></i>
+      </button>
+    </form>
     <div class='back'>
       <a href='/user'>Back to Profile</a>
-      <a href='/user/change-password'>Change Password</a>
     </div>
   </div>
 </div>

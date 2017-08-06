@@ -13,6 +13,7 @@ body {
   height: 100%;
 }
 
+/* no scrollbars! ever! */
 ::-webkit-scrollbar { 
     display: none; 
 }
@@ -37,17 +38,13 @@ a {
   text-decoration: none;
 }
 
-button {
-  outline: none;
-}
-
-input, textarea {
+button, input, textarea {
   outline: none;
   font-family: 'PT Mono', monospace;
 }
 
-input[type='submit'] {
-  font-family: 'PT Mono', monospace;
+input:focus::placeholder {
+  opacity: 0;
 }
 
 nav {
@@ -59,6 +56,7 @@ nav {
   right: 0;
   top: 0;
   left: 0;
+  padding: 0 10px;
 }
 
 nav, nav ul {
@@ -66,10 +64,7 @@ nav, nav ul {
   flex-direction: row;
 }
 
-nav ul {
-  padding-right: 10px;
-}
-
+/* logo styles */
 nav #home {
   margin: 10px;
   text-decoration: none;
@@ -80,6 +75,7 @@ nav #home {
 
 }
 
+/* anything that's not the nav buttons */
 nav .not-nav {
   display: flex;
   flex-direction: row;
@@ -88,16 +84,19 @@ nav .not-nav {
   flex-grow: 1;
 }
 
+/* "hello <user>!" style */
 nav ul #user-greeting {
   margin-bottom: 10px;
 }
 
+/* styles for <li>'s containing nav buttons and their hidden labels */
 nav ul li {
   display: flex;
   margin: 15px 5px 5px 5px;
   align-items: center;
 }
 
+/* styles for nav buttons! */
 nav button {
   width: 45px;
   font-size: 14px;
@@ -107,25 +106,56 @@ nav button {
   transition: all .25s;
 }
 
+/* makes nav buttons pointy on hover */
 nav button:hover {
   border-radius: 0px;
 }
 
+/* styles for main container buttons */
+.container button {
+  display: flex;
+  margin: 0 5px;
+  font-size: 16px;
+  width: 50px;
+  min-height: 27px;
+  border-radius: 5px;
+  background-color: darkgrey;
+  justify-content: center;
+}
+
+#update-profile-container {
+  margin: 0;
+  height: 70vh; 
+}
+
+#update-profile-container form {
+  margin: 10px 0;
+}
+
+#user-edit-button, #change-password-button {
+  width: 50px;
+  height :27px;
+}
+
+/* styles for all button labels */
 .button-label {
   font-family: 'PT Mono', monospace;
   transition: all .2s;
 }
 
+/* styles for nav button labels */
 nav .button-label {
   font-size: 8px;
   padding-top: 5px;
 }
 
+/* styles for main body button labels */
 .container .button-label {
   font-size: 10px;
   padding-bottom: 3px;
 }
 
+/* below styles for index page contents */
 .splash-container {
   display: flex;
   flex-direction: column;
@@ -182,7 +212,9 @@ nav .button-label {
   width: auto;
   text-align: center;
 }
+/* above styles for index page contents */
 
+/* styles for main container */
 .container {
   display: flex;
   flex-direction: column;
@@ -192,29 +224,35 @@ nav .button-label {
   width: 95vw;
 }
 
+/* styles for reading list Read and Unread containers */
 .container .read-book-container, .container .unread-book-container {
    width: 90vw;
    padding-top: 15px;
 }
 
-.container .add-container {
-  display: flex;
-  flex-direction: column;
-  max-height: 80vh;
-  min-height: 70vh; 
-  width: 80vw;
-  justify-content: center;
-}
-
+/* styles for most sub-containers */
 .container .input-container, .container .search-container,
-.container .user-container {
+.container .user-container, .container .add-container {
   display: flex;
   flex-direction: column;
   justify-content: center; 
   align-items: center; 
-  width: 60%;
   align-self: center;
-  margin: 20px;
+}
+
+.container .add-container {
+  height: 77vh; 
+  width: 80vw;
+}
+
+.add-container #book-submit-button {
+  height: 30px;
+}
+
+.container .input-container, .container .search-container,
+.container .user-container {
+  width: 60%;
+  margin: 15px auto;
 }
 
 .container .user-container,
@@ -222,6 +260,7 @@ nav .button-label {
   height: 60vh;
 }
 
+/* user profile info container styles! */
 .user-container ul {
   font-family: 'PT Mono', monotype;
 }
@@ -256,6 +295,7 @@ nav .button-label {
   line-height: 20px;
 }
 
+/* chat styles! */
 .container .chat-container {
   font-family: 'PT Mono', monospace;
   flex-direction: column;
@@ -311,7 +351,6 @@ nav .button-label {
   display: flex; 
   flex-direction: column-reverse;
   overflow: auto;
-  /* min-height: 100%;  */
 }
 
 #chat-content p {
@@ -340,18 +379,7 @@ nav .button-label {
   padding-left: 3px;
 }
 
-.container button {
-  margin: 0 5px;
-  font-size: 16px;
-  width: 50px;
-  border-radius: 5px;
-  background-color: darkgrey;
-}
-
-.container #book-submit-button {
-  height: 30px;
-}
-
+/* styles for input forms! */
 .input-container form {
   display: flex;
   flex-direction: column;
@@ -360,6 +388,33 @@ nav .button-label {
   min-width: 275px; 
   text-align: center;
   margin-bottom: 20px;
+}
+
+#splash-bookstore-request,
+#splash-book-request {
+  border: solid 2px rgba(255,255,255,.5);
+  border-radius: 30px;
+  margin: 10px;
+  transition: all .25s;
+}
+
+#splash-bookstore-request:hover,
+#splash-book-request:hover {
+  border-radius: 0px;
+  border-color: rgba(255,255,255,1);
+  background-color: black; 
+}
+
+#splash-bookstore-request input,
+#splash-book-request input {
+  border: none;
+  border-radius: 0px;
+  padding: 0;
+}
+
+#splash-bookstore-request input:focus,
+#splash-book-request input:focus {
+  color: black;
 }
 
 .input-container form [type='text'], .input-container form [type='number'],
@@ -406,11 +461,13 @@ nav .button-label {
   height: 50vh;
 }
 
+/* styles for book and search result items */
 .store, .book {
   margin: 10px 0;
   border: solid 1px grey;
   border-radius: 10px;
   width: 100%;
+  background-color: rgba(0,0,0,.5);
 }
 
 .book .user-feedback {
@@ -474,6 +531,7 @@ nav .button-label {
   padding: 5px;
 }
 
+/* styles for 'back to' links */
 .back a{
   transition: all .25s;
   margin: 15px;
@@ -485,6 +543,7 @@ nav .button-label {
   text-shadow: 1px 0px white, 0px 1px white, -1px 0px white, 0px -1px white;
 }
 
+/* footer styles! */
 footer {
   display: flex;
   flex-direction: column;
@@ -502,34 +561,40 @@ footer {
 footer div {
   display: flex;
   flex-direction: row;
+  width: 100%;
 }
 
 footer .footer-search {
-  display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%
+}
+
+.footer-search form {
+  border-left: solid 2px rgba(255,255,255,.5);
+  border-right: solid 2px rgba(255,255,255,.5); 
+  border-radius: 7px;
+  transition: all .25s;
+  margin: 5px 10px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
 }
 
 .footer-search form input {
-  margin: 10px 0px 10px 10px; 
-  padding: 0 7px;
+  /* margin: 10px 0px 10px 10px;  */
+  /* padding: 0 7px; */
   font-size: 14px;
   background-color: transparent;
   color: white;
-  border-color: rgba(255,255,255,.5);
-  border-radius: 4px;
-  border-top: none;
-  border-bottom: none; 
-  transition: all .25s;
+  border: none;
   text-align: center;
 }
 
-footer form input:focus {
+.footer-search form:hover {
   border-radius: 0px;
   border-color: rgba(255,255,255,1);
-  background-color: black;
-}
+  background-color: black;  
+} 
 
 footer form button {
   color: white;
@@ -548,13 +613,15 @@ footer form button:hover, footer form button:focus {
 }
 
 footer .credits {
-  display: flex;
   justify-content: space-between;
   align-items: space-between;
   width: 90vw;
-  padding: 10px;
+  padding: 10px 5vw;
+  font-size: 14px;
 }
 
+
+/* toggle-able style classes here */
 .hidden {
   opacity: 0;
   cursor: default;
@@ -568,8 +635,9 @@ footer .credits {
   color: #FFF8F6;
 }
 
+/* */
 /* Below styling borrowed from http://www.cssscript.com/simple-5-star-rating-system-with-css-and-html-radios/ */
-
+/* styling for star ratings */
 input.star { 
   display: none;
 }
@@ -605,10 +673,11 @@ label.star:before {
   content: '\f006';
   font-family: FontAwesome;
 }
-
+/* */
 /* Above styling borrowed from http://www.cssscript.com/simple-5-star-rating-system-with-css-and-html-radios/ */
+/* */
 
-
+/* media query for desktop */
 @media screen and (min-width: 700px) {
   body {
     display: flex;
@@ -639,6 +708,7 @@ label.star:before {
 
 }
 
+/* media query for mobile */
 @media screen and (max-width: 700px) {
   h1 {
     font-size: 20px;
@@ -684,8 +754,9 @@ label.star:before {
   }
 
   .container {
-    margin: 85px auto 70px;
+    margin: 85px auto 50px;
     padding: 0 0 0;
+    width: 100vw;
   }
 
   .input-container form [type='text'], .input-container form [type='number'],
@@ -707,6 +778,11 @@ label.star:before {
   .container .user-container {
     width: 100%;
     margin: 0;
+  }
+
+  .container .chat-container {
+    width: 95vw;
+    margin: 10px 0;
   }
 
   #chat-box .chat-message p {

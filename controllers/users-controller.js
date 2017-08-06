@@ -1,3 +1,5 @@
+// controller for user account creation and modification
+
 const bcrypt = require('bcryptjs');
 const User = require('../models/user.js');
 
@@ -59,6 +61,20 @@ usersController.update = (req, res) => {
     email: req.body.email,
     firstname: req.body.firstname,
     lastname: req.body.lastname,
+    id: req.user.id,
+  }).then((user) => {
+    res.redirect('/user');
+  }).catch((err) => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+};
+
+usersController.updatePassword = (req, res) => {
+  const salt = bcrypt.genSaltSync();
+  const hash = bcrypt.hashSync(req.body.password, salt);
+  User.changePassword({
+    password_digest: hash,
     id: req.user.id,
   }).then((user) => {
     res.redirect('/user');

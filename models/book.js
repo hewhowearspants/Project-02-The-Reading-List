@@ -1,3 +1,5 @@
+// PSQL database queries for 'books' table
+
 const db = require('../db/config');
 
 const Book = {};

@@ -1,3 +1,5 @@
+// controller for book list
+
 const Book = require('../models/book');
 
 const bookController = {};

@@ -7,15 +7,13 @@
     <p id='splash-quote-author'><%= subTitle %></p>
   </div>
   <div class='search-container'>
-    <form id='bookstore-request' class='tooltip' method='GET'>
-      <span class='tooltiptext-top'>Find bookstores</span>
+    <form id='bookstore-request' method='GET'>
       <input type='text' name='zip' maxlength=5 size=5 placeholder='ZIP' required />
       <button type='submit' id='bookstore-request-button'>
         <i class="fa fa-search" aria-hidden="true"></i>
       </button>
     </form>
-    <form id='book-request' class='tooltip' method='GET'>
-      <span class='tooltiptext-bottom'>Find books</span>
+    <form id='book-request' method='GET'>
       <input type='text' name='query' placeholder='Title or Author' required />
       <button type='submit' id='book-request-button'>
         <i class="fa fa-search" aria-hidden="true"></i>

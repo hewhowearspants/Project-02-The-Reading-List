@@ -567,67 +567,6 @@ footer .credits {
   color: #FFF8F6;
 }
 
-.tooltip {
-  position: relative;
-}
-
-.tooltip .tooltiptext-top,
-.tooltip .tooltiptext-bottom {
-  opacity: 0;
-  transition: all .25s;
-  font-family: 'PT Mono', monospace;
-  font-size: 12px;
-  visibility: hidden;
-  background-color: white;
-  width: 120px;
-  color: black;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
-  position: absolute;
-  z-index: 1;
-}
-
-.tooltip .tooltiptext-top {
-  bottom: 100%;
-  left: 50%;
-  margin-left: -60px;
-}
-
-.tooltip .tooltiptext-bottom {
-  top: 100%;
-  left: 50%;
-  margin-left: -60px; 
-}
-
-.tooltip:hover .tooltiptext-top,
-.tooltip:hover .tooltiptext-bottom {
-  visibility: visible;
-  opacity: 1;
-}
-
-.tooltip .tooltiptext-top::after {
-  content: " ";
-  position: absolute;
-  top: 100%;
-  left: 40%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: white transparent transparent transparent;
-}
-
-.tooltip .tooltiptext-bottom::after {
-  content: "";
-  position: absolute;
-  bottom: 100%;
-  left: 40%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent transparent white transparent;
-}
-
 /* Below styling borrowed from http://www.cssscript.com/simple-5-star-rating-system-with-css-and-html-radios/ */
 
 input.star { 

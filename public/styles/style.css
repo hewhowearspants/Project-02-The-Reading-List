@@ -217,7 +217,8 @@ nav .button-label {
   margin: 20px;
 }
 
-.container .user-container {
+.container .user-container,
+.container .input-container {
   height: 60vh;
 }
 

@@ -64,11 +64,11 @@ io.on('connection', function(socket) {
 ```
 Above is the code I used as to power the server side of my chatroom. Since the lecture we had on SOCKET.IO was so spartan, I was pretty proud to be able to fill out more functionality on my own.
 
-## The Making of Blackjack
+## The Making of The Reading List
 
 Thanks to Ramsey for pointing out that I needed to put server.listen instead of app.listen for socket.io to work, to Philip for un-f*cking my API functions in main.js, and to my wife Yue for heading to Boston for the weekend so I could obsess over this app.
 
 
 ## Opportunities for Future Growth
 
-If I had more time, I would implement working with categories, putting book cover images in the book single info (image URLs are in the Google Books API, I just never got around to using them), finding another book API to get actual original published dates instead of reprints. I would also flesh out my chatroom further, with private messages, more key words (I put in '>username', which prints out all users in the room, so more like that). 
+If I had more time, I would implement working with categories, putting book cover images in the book single info (image URLs are in the Google Books API, I just never got around to using them), finding another book API to get actual original published dates instead of reprints. I would also flesh out my chatroom further, with private messages, more key words (I put in '>username', which prints out all users in the room, so more like that). I would also like to implement modal windows for a more seamless experience.

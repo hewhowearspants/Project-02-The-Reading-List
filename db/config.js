@@ -1,3 +1,5 @@
+// sets up db for PSQL queries
+
 const options = {
     query: (e) => {
         console.log(e.query);

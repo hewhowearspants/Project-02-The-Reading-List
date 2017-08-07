@@ -5,6 +5,7 @@ const GOOGLE_GEOCODE_KEY = process.env.GOOGLE_GEOCODE_KEY;
 const GOOGLE_PLACES_KEY = process.env.GOOGLE_PLACES_KEY;
 const GOOGLE_BOOKS_KEY = process.env.GOOGLE_BOOKS_KEY;
 
+// get lat and long info based on ZIP code
 function getGeocode (req, res, next) {
   const zipCode = req.params.zip;
   console.log('getting lat & long for ' + zipCode);
@@ -19,6 +20,7 @@ function getGeocode (req, res, next) {
     })
 };
 
+// get bookstores nearby to given latitude and longitude
 function getBookstores (req, res, next) {
   const location = res.locals.location;
   console.log('getting bookstores...');
@@ -40,6 +42,7 @@ function getBookstores (req, res, next) {
     });
 };
 
+// get book information from Google Books API based on given query
 function getBooks (req, res, next) {
   const query = req.params.query;
   console.log('getting books from Google...');

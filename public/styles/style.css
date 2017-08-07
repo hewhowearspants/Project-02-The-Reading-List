@@ -240,24 +240,59 @@ nav .button-label {
   align-self: center;
 }
 
-.container .add-container {
-  height: 77vh; 
-  width: 80vw;
-}
-
-.add-container #book-submit-button {
-  height: 30px;
-}
-
-.container .input-container, .container .search-container,
-.container .user-container {
-  width: 60%;
-  margin: 15px auto;
-}
-
 .container .user-container,
-.container .input-container {
-  height: 60vh;
+.container .input-container,
+.container .add-container {
+  height: 65vh;
+  width: 70vw;
+}
+
+.container .add-container {
+  height: 75vh;
+}
+
+.add-container .search-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 15px 0;
+}
+
+.add-container #book-request {
+  display: flex;
+  align-items: center;
+
+}
+.add-container .input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: stretch;
+  width: 100%;
+} 
+
+.add-container .input-container form {
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+  width: 100%;
+  margin: 0;
+}
+
+.input-container .year-genre {
+  display: flex;
+  width: 95%;
+}
+
+.year-genre input[name='year'] {
+  text-align: center;
+  max-width: 60px;
+}
+
+.container .input-container,
+.container .user-container {
+  width: 70%;
+  margin: 15px auto;
 }
 
 /* user profile info container styles! */
@@ -437,14 +472,6 @@ nav .button-label {
   font-size: 16px;
   height: 125px;
 }
- 
-.input-container form .year-genre {
-   display: flex; 
-} 
-
-.year-genre input[name='year'], .year-genre input[name='genre'] {
-  width: auto;
-}
 
 .input-container form [type='text']:focus, .input-container form [type='number']:focus,
 .input-container form [type='password']:focus, .input-container form [type='email']:focus,
@@ -532,10 +559,12 @@ nav .button-label {
 }
 
 /* styles for 'back to' links */
+.back {
+  margin: 15px 15px 0 15px;
+}
+
 .back a{
   transition: all .25s;
-  margin: 15px;
-
 }
 
 .back a:hover {
@@ -581,8 +610,6 @@ footer .footer-search {
 }
 
 .footer-search form input {
-  /* margin: 10px 0px 10px 10px;  */
-  /* padding: 0 7px; */
   font-size: 14px;
   background-color: transparent;
   color: white;
@@ -757,6 +784,13 @@ label.star:before {
     margin: 85px auto 50px;
     padding: 0 0 0;
     width: 100vw;
+  }
+
+  .container .user-container,
+  .container .input-container,
+  .container .add-container {
+    height: 75vh;
+    width: 90vw;
   }
 
   .input-container form [type='text'], .input-container form [type='number'],

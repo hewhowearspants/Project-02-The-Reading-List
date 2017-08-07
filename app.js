@@ -6,14 +6,16 @@ const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
-const favicon = require('serve-favicon');
+const favicon = require('serve-favicon'); // this is for the little icon up top in chrome
 
 const app = express();
+// importing and initializing socket.io server
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 
 require('dotenv').config();
 
+// setting up imported packages
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -27,12 +29,15 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+// set up static files and favicon
 app.use(express.static(__dirname + '/public'));
-app.use(favicon(__dirname + '/public/images/favicon.ico'));
+app.use(favicon(__dirname + '/public/images/favicon.ico')); // for finding the favicon
 
+// set up views
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+// socket.io chat server functionality
 let users = {};
 
 io.on('connection', function(socket) {
@@ -62,6 +67,7 @@ io.on('connection', function(socket) {
   });
 });
 
+// thanks to Ramsey for pointing out that app.listen don't cut it for socket.io
 const port = process.env.PORT || 3000;
 server.listen(port, () => {
     console.log(`You're tuned in to port ${port}!`);
@@ -69,6 +75,7 @@ server.listen(port, () => {
 
 const authHelpers = require('./services/auth/auth-helpers');
 
+// chat route
 app.get('/chat', authHelpers.loginRequired, (req, res) => {
   res.render('chat', {
     message: 'ok',
@@ -77,6 +84,7 @@ app.get('/chat', authHelpers.loginRequired, (req, res) => {
   });
 });
 
+// index route
 app.get('/', (req, res) => {
   res.render('index', {
       message: '“We need to make books cool again. If you go home with somebody and they don\'t have books, don\'t fuck them.”',
@@ -87,6 +95,7 @@ app.get('/', (req, res) => {
   });
 });
 
+// routes
 const bookRoutes = require('./routes/book-routes');
 app.use('/books', bookRoutes);
 const authRoutes = require('./routes/auth-routes');

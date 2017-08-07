@@ -26,8 +26,8 @@ This game made heavy use of HTML/EJS, Javascript (including Express, Node, PG-Pr
 
 *Modules I used:*
 All the usual modules we've been using for Unit 2 (express, morgan, body-parser, passport, etc), plus
--'http' (for socket.io)
--'serve-favicon', which allows Express apps to set a favicon (the little icon that shows up at the top of a tab in Google Chrome)
+- 'http' (for socket.io)
+- 'serve-favicon', which allows Express apps to set a favicon (the little icon that shows up at the top of a tab in Google Chrome)
 
 ### Notes on Game Structure
 

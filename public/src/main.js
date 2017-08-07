@@ -88,8 +88,6 @@ $(() => {
     let confirmPass = $('#confirm-password-input').val();
     let newPass = $('#change-password-input').val();
 
-    console.log(confirmPass);
-    console.log(newPass);
     if (confirmPass === newPass) {
       $changeButton.removeAttr('disabled');
       $changeButton.html('<i class="fa fa-share" aria-hidden="true"></i><i class="fa fa-lock" aria-hidden="true"></i>');

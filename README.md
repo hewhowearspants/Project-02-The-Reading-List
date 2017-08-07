@@ -72,3 +72,5 @@ Thanks to Ramsey for pointing out that I needed to put server.listen instead of 
 ## Opportunities for Future Growth
 
 If I had more time, I would implement working with categories, putting book cover images in the book single info (image URLs are in the Google Books API, I just never got around to using them), finding another book API to get actual original published dates instead of reprints. I would also flesh out my chatroom further, with private messages, more key words (I put in '>username', which prints out all users in the room, so more like that). I would also like to implement modal windows for a more seamless experience.
+
+Oh, and I would also go back and consolidate my CSS styles, at almost 900 lines, I'm sure there ended up being some redundancies. This is why you need a UX designer.

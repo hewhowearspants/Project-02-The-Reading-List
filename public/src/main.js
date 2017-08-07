@@ -24,29 +24,29 @@ $(() => {
   $bookstoreForm.on('submit', (event) => getBookstores(event));
   $bookForm.on('submit', (event) => getBooks(event));
 
-  $bookstoreForm.on('focusin', () => {
-    $bookstoreForm.css('border-radius', '0px');
-    $bookstoreForm.css('border-color', 'rgba(255,255,255,1)');
-    $bookstoreForm.css('background-color', 'rgba(200,200,200,.75)');
-    $bookstoreForm.children().css('color', 'black');
+  $bookstoreForm.on('focusin', (e) => {
+    $(e.target).parent().css('border-radius', '0px');
+    $(e.target).parent().css('border-color', 'rgba(255,255,255,1)');
+    $(e.target).parent().css('background-color', 'rgba(200,200,200,.75)');
+    $(e.target).parent().children().css('color', 'black');
   });
-  $bookstoreForm.on('focusout', () => {
-    $bookstoreForm.css('border-radius', '');
-    $bookstoreForm.css('border-color', '');
-    $bookstoreForm.css('background-color', '');
-    $bookstoreForm.children().css('color', '');
+  $bookstoreForm.on('focusout', (e) => {
+    $(e.target).parent().css('border-radius', '');
+    $(e.target).parent().css('border-color', '');
+    $(e.target).parent().css('background-color', '');
+    $(e.target).parent().children().css('color', '');
   });
-  $bookForm.on('focusin', () => {
-    $bookForm.css('border-radius', '0px');
-    $bookForm.css('border-color', 'rgba(255,255,255,1)');
-    $bookForm.css('background-color', 'rgba(200,200,200,.75)');
-    $bookForm.children().css('color', 'black');
+  $bookForm.on('focusin', (e) => {
+    $(e.target).parent().css('border-radius', '0px');
+    $(e.target).parent().css('border-color', 'rgba(255,255,255,1)');
+    $(e.target).parent().css('background-color', 'rgba(200,200,200,.75)');
+    $(e.target).parent().children().css('color', 'black');
   });
-  $bookForm.on('focusout', () => {
-    $bookForm.css('border-radius', '');
-    $bookForm.css('border-color', '');
-    $bookForm.css('background-color', '');
-    $bookForm.children().css('color', '');
+  $bookForm.on('focusout', (e) => {
+    $(e.target).parent().css('border-radius', '');
+    $(e.target).parent().css('border-color', '');
+    $(e.target).parent().css('background-color', '');
+    $(e.target).parent().children().css('color', '');
   });
 
   // event listeners when user tries to change password

@@ -190,7 +190,8 @@ nav .button-label {
   align-items: center;
 }
 
-.splash-container form button {
+.splash-container form button,
+.search-container form button {
   font-size: 20px;
   height: 35px;
   color: #FFF8F6;
@@ -202,13 +203,15 @@ nav .button-label {
 }
 
 .splash-container form button:hover,
-.splash-container form button:focus {
+.splash-container form button:focus,
+.search-container form button:hover,
+.search-container form button:focus {
   border-left: solid 2px #FFF8F6;
   border-right: solid 2px #FFF8F6;
   border-radius: 20px;
 }
 
-.splash-container .search-container input[type='text'] {
+.search-container input[type='text'] {
   width: auto;
   text-align: center;
 }
@@ -258,11 +261,15 @@ nav .button-label {
   margin: 15px 0;
 }
 
-.add-container #book-request {
+.add-container #add-book-request {
   display: flex;
   align-items: center;
-
 }
+
+#add-book-request input {
+  border: none;
+}
+
 .add-container .input-container {
   display: flex;
   flex-direction: column;
@@ -426,19 +433,22 @@ nav .button-label {
 }
 
 #splash-bookstore-request,
-#splash-book-request {
+#splash-book-request,
+#add-book-request {
   border: solid 2px rgba(255,255,255,.5);
   border-radius: 30px;
   margin: 10px;
   transition: all .25s;
 }
 
-#splash-bookstore-request:hover,
-#splash-book-request:hover {
+/* can't decide if this looks good or not */
+/* #splash-bookstore-request:hover,
+#splash-book-request:hover,
+#add-book-request:hover {
   border-radius: 0px;
   border-color: rgba(255,255,255,1);
   background-color: black; 
-}
+} */
 
 #splash-bookstore-request input,
 #splash-book-request input {
